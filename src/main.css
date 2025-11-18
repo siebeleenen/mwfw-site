@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* custom styles */
+.gradient-bgA {
+background: linear-gradient(90deg, #6b5a1e 0%, rgba(43,42,32,1) 65%);
+}
+.poster-shadow { filter: drop-shadow(0 6px 20px rgba(0,0,0,0.6)); }
