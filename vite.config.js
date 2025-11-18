@@ -6,7 +6,7 @@ module.exports = defineConfig(async () => {
 	const vue = (await import('@vitejs/plugin-vue')).default
 	return {
 		plugins: [vue()],
-		base: '/mwfw-site/',
+		base: '/',
 		build: {
 			rollupOptions: {
 				input: {
