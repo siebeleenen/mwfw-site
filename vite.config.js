@@ -5,6 +5,6 @@ module.exports = defineConfig(async () => {
 	const vue = (await import('@vitejs/plugin-vue')).default
 	return {
 		plugins: [vue()],
-		base: './',
+		base: '/mwfw-site/',
 	}
 })
