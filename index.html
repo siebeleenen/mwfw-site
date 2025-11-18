@@ -92,46 +92,50 @@
     <!-- Hero -->
     <section id="home" class="py-12">
       <div class="max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-          <div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+          <div class="flex flex-col gap-4">
             <!-- Poster image -->
             <div class="rounded-2xl overflow-hidden poster-shadow">
               <img src="/img/poster.jpg" alt="MWFW poster" class="w-full h-auto object-cover" />
             </div>
             
             <!-- Black bar with text and button -->
-            <div class="bg-black/90 backdrop-blur-sm rounded-lg p-6 mt-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="bg-black/90 backdrop-blur-sm rounded-lg p-6 flex flex-col md:flex-row items-center justify-between gap-4">
               <p class="text-white text-lg md:text-xl leading-snug">Voor het <span class="font-extrabold">25ste jaar op rij</span> organiseert Chiro Arika de leukste fuif van Herk‑de‑Stad en omstreken. Mis het niet!</p>
               <a href="https://linktr.ee/mwfw" target="_blank" rel="noopener" class="inline-block bg-accent text-black px-6 py-3 rounded-md font-semibold whitespace-nowrap flex-shrink-0">Tickets & Info</a>
             </div>
           </div>
 
-          <div>
-            <div class="bg-white/5 text-white p-8 rounded-lg poster-shadow ring-1 ring-white/10 backdrop-blur-sm">
+          <div class="flex">
+            <div class="bg-white/5 text-white p-8 rounded-lg poster-shadow ring-1 ring-white/10 backdrop-blur-sm flex flex-col justify-center w-full h-full">
               <!-- Countdown -->
               <div id="countdown" class="text-center">
-                <h3 class="text-lg font-bold">Countdown</h3>
-                <div class="mt-3 grid grid-cols-4 gap-2">
-                  <div class="bg-white/5 rounded-md p-3 ring-1 ring-white/10">
-                    <div id="cc-days" class="text-2xl font-extrabold">0</div>
-                    <div class="text-xs text-white/70">Dagen</div>
+                <h3 class="text-3xl md:text-4xl font-bold mb-8">Countdown</h3>
+                <div class="grid grid-cols-2 gap-4 mb-8">
+                  <div class="bg-white/5 rounded-lg p-6 ring-1 ring-white/10">
+                    <div id="cc-days" class="text-4xl md:text-5xl font-extrabold text-accent">0</div>
+                    <div class="text-sm md:text-base text-white/70 mt-2">Dagen</div>
                   </div>
-                  <div class="bg-white/5 rounded-md p-3 ring-1 ring-white/10">
-                    <div id="cc-hours" class="text-2xl font-extrabold">0</div>
-                    <div class="text-xs text-white/70">Uren</div>
+                  <div class="bg-white/5 rounded-lg p-6 ring-1 ring-white/10">
+                    <div id="cc-hours" class="text-4xl md:text-5xl font-extrabold text-accent">0</div>
+                    <div class="text-sm md:text-base text-white/70 mt-2">Uren</div>
                   </div>
-                  <div class="bg-white/5 rounded-md p-3 ring-1 ring-white/10">
-                    <div id="cc-mins" class="text-2xl font-extrabold">0</div>
-                    <div class="text-xs text-white/70">Minuten</div>
+                  <div class="bg-white/5 rounded-lg p-6 ring-1 ring-white/10">
+                    <div id="cc-mins" class="text-4xl md:text-5xl font-extrabold text-accent">0</div>
+                    <div class="text-sm md:text-base text-white/70 mt-2">Minuten</div>
                   </div>
-                  <div class="bg-white/5 rounded-md p-3 ring-1 ring-white/10">
-                    <div id="cc-secs" class="text-2xl font-extrabold">0</div>
-                    <div class="text-xs text-white/70">Seconden</div>
+                  <div class="bg-white/5 rounded-md p-6 ring-1 ring-white/10">
+                    <div id="cc-secs" class="text-4xl md:text-5xl font-extrabold text-accent">0</div>
+                    <div class="text-sm md:text-base text-white/70 mt-2">Seconden</div>
                   </div>
                 </div>
-                <div id="cc-done" class="hidden mt-3 text-sm font-semibold">We zijn live! 🎉</div>
+                <div id="cc-done" class="hidden text-lg font-semibold">We zijn live! 🎉</div>
               </div>
-              <div class="mt-4 text-sm text-white/70 text-center">Verwarmde buitentent · Gratis fuifbus · Happy Hour&nbsp;21:00–22:00&nbsp;(2&nbsp;voor&nbsp;1)</div>
+              <div class="text-base md:text-lg text-white/80 text-center leading-relaxed">
+                <div class="mb-2">🎪 Verwarmde buitentent</div>
+                <div class="mb-2">🚌 Gratis fuifbus</div>
+                <div>🍺 Happy Hour&nbsp;21:00–22:00&nbsp;(2&nbsp;voor&nbsp;1)</div>
+              </div>
             </div>
           </div>
         </div>
@@ -142,11 +146,12 @@
     <section id="aftermovie" class="max-w-4xl mx-auto px-6 py-8">
       <div class="bg-white/5 p-6 rounded-lg poster-shadow ring-1 ring-white/10">
         <h2 class="text-2xl font-bold">Aftermovie 2023</h2>
+        <p class="text-accent/80 mt-2">Bekijk de MWFW 2023 aftermovie.</p>
         <div class="mt-4 rounded-xl overflow-hidden ring-1 ring-white/10 aspect-video">
           <video controls preload="metadata" class="w-full h-full">
             <source src="/img/aftermovie-2023.mp4" type="video/mp4" />
             Je browser ondersteunt de video‑tag niet.
-            <a href="/img/aftermovie-2023.mp4" class="underline">Download de video</a>.
+            <a href="/assets/aftermovie-2023.mp4" class="underline">Download de video</a>.
           </video>
         </div>
       </div>
@@ -156,7 +161,6 @@
     <section id="sponsors" class="max-w-7xl mx-auto px-6 py-12">
       <div class="bg-white/5 p-6 rounded-lg max-w-6xl mx-auto text-center">
         <h2 class="text-2xl font-bold">Met dank aan onze sponsors!</h2>
-        <p class="text-accent/80 mt-2"><code> zet in src/assets/sponsors/</code>.</p>
         <div class="mt-6">
           <div id="app"></div>
         </div>
