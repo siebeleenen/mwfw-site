@@ -1,12 +1,9 @@
-import { defineConfig } from 'vite'
+// CommonJS-compatible Vite config that loads ESM Vue plugin dynamically
+const { defineConfig } = require('vite')
 
-
-export default defineConfig({
-root: '.',
-build: {
-outDir: 'dist',
-rollupOptions: {
-input: '/index.html'
-}
-}
+module.exports = defineConfig(async () => {
+	const vue = (await import('@vitejs/plugin-vue')).default
+	return {
+		plugins: [vue()],
+	}
 })

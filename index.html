@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Moeder Waarom Fuif-en Wij? — MWFW</title>
   <meta name="description" content="Moeder Waarom Fuif-en Wij? — De leukste fuif van Herk-de-Stad. 14/03/2026 | Industrieweg 1062 | Verwarmde tent, happy hour, fuifbus en meer." />
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/galleryX.jpg" type="image/jpeg">
+  <link rel="apple-touch-icon" href="/assets/galleryX.jpg">
+  <link rel="shortcut icon" href="/assets/galleryX.jpg" type="image/jpeg">
   <!-- Tailwind CDN (for quick demo). For production use a build step with Tailwind CLI/PostCSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -33,7 +37,9 @@
   <header x-data="{open:false}" class="bg-transparent">
     <div class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
       <div class="flex items-center gap-4">
-        <div class="w-12 h-12 rounded-full bg-accent/90 flex items-center justify-center text-black font-bold poster-shadow">MW</div>
+        <div class="w-12 h-12 rounded-full relative overflow-hidden poster-shadow ring-1 ring-white/20">
+          <img src="/assets/galleryX.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" />
+        </div>
         <div>
           <a href="#home" class="text-2xl font-extrabold tracking-tight text-accent">Moeder Waarom <span class="block text-lg">Fuif-en Wij?</span></a>
           <div class="text-sm text-accent/80">14 maart 2026 — Industrieweg 1062, Herk-de-Stad</div>
@@ -91,9 +97,9 @@
     <!-- Hero -->
     <section id="home" class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center py-12">
       <div class="md:col-span-2 flex items-center">
-        <div class="bg-white/95 text-mwfw rounded-2xl p-8 md:p-12 poster-shadow w-full">
-          <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
-            <img src="/assets/poster.jpg" alt="MWFW poster" class="w-48 h-48 object-cover rounded-lg poster-shadow hidden md:block">
+        <div class="relative bg-white/70 backdrop-blur-sm text-mwfw rounded-2xl p-8 md:p-12 poster-shadow w-full overflow-hidden">
+          <img src="/assets/poster.jpg" alt="MWFW poster" class="absolute inset-0 w-full h-full object-cover opacity-20" />
+          <div class="relative flex flex-col md:flex-row items-start md:items-center gap-6">
             <div>
               <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">MOEDER<br>WAAROM<br>FUIF‑EN WIJ?</h1>
               <p class="mt-4 text-lg text-mwfw/75">Voor het 24ste jaar op rij organiseert Chiro Arika de leukste fuif van Herk‑de‑Stad en omstreken.</p>
@@ -103,7 +109,7 @@
                 <a href="#praktisch" class="inline-block border-2 border-mwfw text-mwfw px-5 py-3 rounded-md font-medium">Praktisch</a>
               </div>
 
-              <dl class="mt-6 grid grid-cols-2 gap-2 text-sm">
+              <dl class="mt-6 grid grid-cols-2 gap-2 text-sm relative z-10">
                 <div><dt class="font-semibold">Locatie</dt><dd>Industrieweg 1062, 3540 Herk‑de‑Stad</dd></div>
                 <div><dt class="font-semibold">Datum</dt><dd>14 maart 2026</dd></div>
                 <div><dt class="font-semibold">Duur</dt><dd>7 uur</dd></div>
@@ -149,18 +155,13 @@
       </aside>
     </section>
 
-    <!-- Sponsors (placeholder for future logos) -->
+    <!-- Sponsors (Vue will render the grid here) -->
     <section id="sponsors" class="max-w-7xl mx-auto px-6 py-12">
       <div class="bg-white/5 p-6 rounded-lg max-w-4xl mx-auto text-center">
         <h2 class="text-2xl font-bold">Sponsors</h2>
-        <p class="text-accent/80 mt-2">Onze dank aan de sponsors — logo's komen hier te staan. Plaats logo's in <code>/assets/sponsors/</code>.</p>
-
-        <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4 items-center justify-center">
-          <!-- Example placeholders (replace with real images later) -->
-          <div class="bg-white/6 p-4 rounded-md h-24 flex items-center justify-center text-accent/60">Sponsor 1</div>
-          <div class="bg-white/6 p-4 rounded-md h-24 flex items-center justify-center text-accent/60">Sponsor 2</div>
-          <div class="bg-white/6 p-4 rounded-md h-24 flex items-center justify-center text-accent/60">Sponsor 3</div>
-          <div class="bg-white/6 p-4 rounded-md h-24 flex items-center justify-center text-accent/60">Sponsor 4</div>
+        <p class="text-accent/80 mt-2">Onze dank aan de sponsors — voeg logo's toe in <code>src/assets/sponsors/</code>.</p>
+        <div class="mt-6">
+          <div id="app"></div>
         </div>
       </div>
     </section>
@@ -169,10 +170,22 @@
     <section id="tabs" x-data="{tab:'lineup'}" class="bg-transparent rounded-lg">
       <div class="max-w-4xl mx-auto bg-white/5 p-6 rounded-lg">
         <nav class="flex gap-4 justify-center mb-6">
-          <button data-tab="lineup" @click="tab='lineup'" :class="tab==='lineup'? 'bg-accent text-black' : 'text-accent/70'" class="px-4 py-2 rounded-md font-semibold">Line‑up</button>
-          <button data-tab="info" @click="tab='info'" :class="tab==='info'? 'bg-accent text-black' : 'text-accent/70'" class="px-4 py-2 rounded-md font-semibold">Info</button>
-          <button data-tab="tickets" @click="tab='tickets'" :class="tab==='tickets'? 'bg-accent text-black' : 'text-accent/70'" class="px-4 py-2 rounded-md font-semibold">Tickets</button>
-          <button data-tab="praktisch" @click="tab='praktisch'" :class="tab==='praktisch'? 'bg-accent text-black' : 'text-accent/70'" class="px-4 py-2 rounded-md font-semibold">Praktisch</button>
+          <button data-tab="lineup" @click="tab='lineup'" :class="tab==='lineup'? 'bg-accent text-black' : 'text-accent/70'" class="px-4 py-2 rounded-md font-semibold inline-flex items-center gap-2">
+            <img src="/assets/galleryX.jpg" alt="" class="w-5 h-5 rounded-full object-cover" />
+            <span>Line‑up</span>
+          </button>
+          <button data-tab="info" @click="tab='info'" :class="tab==='info'? 'bg-accent text-black' : 'text-accent/70'" class="px-4 py-2 rounded-md font-semibold inline-flex items-center gap-2">
+            <img src="/assets/galleryX.jpg" alt="" class="w-5 h-5 rounded-full object-cover" />
+            <span>Info</span>
+          </button>
+          <button data-tab="tickets" @click="tab='tickets'" :class="tab==='tickets'? 'bg-accent text-black' : 'text-accent/70'" class="px-4 py-2 rounded-md font-semibold inline-flex items-center gap-2">
+            <img src="/assets/galleryX.jpg" alt="" class="w-5 h-5 rounded-full object-cover" />
+            <span>Tickets</span>
+          </button>
+          <button data-tab="praktisch" @click="tab='praktisch'" :class="tab==='praktisch'? 'bg-accent text-black' : 'text-accent/70'" class="px-4 py-2 rounded-md font-semibold inline-flex items-center gap-2">
+            <img src="/assets/galleryX.jpg" alt="" class="w-5 h-5 rounded-full object-cover" />
+            <span>Praktisch</span>
+          </button>
         </nav>
 
         <div>
@@ -271,6 +284,7 @@
     </div>
   </footer>
 
+  <script type="module" src="/src/main.js"></script>
   <!-- Small script: keyboard shortcuts (T -> tickets) and hash -> tab activation -->
   <script>
     // Keyboard shortcut: T opens tickets
