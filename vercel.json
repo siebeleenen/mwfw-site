@@ -1,7 +1,4 @@
 {
-  "rewrites": [
-    { "source": "/lineup.html", "destination": "/lineup.html" },
-    { "source": "/praktisch.html", "destination": "/praktisch.html" },
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
+  "cleanUrls": true,
+  "trailingSlash": false
 }
