@@ -19,9 +19,9 @@ const fallbackImg = '/assets/galleryX.jpg'
 
 const base = [
   { time: '21:00 — 22:30', name: 'David Guetta' },
-  { time: '22:30 — 00:00', name: 'DJ 2' },
-  { time: '00:00 — 01:30', name: 'DJ 3' },
-  { time: '01:30 — 03:00', name: 'DJ 4' }
+  { time: '22:30 — 00:00', name: 'Netsky' },
+  { time: '00:00 — 01:30', name: 'Chris Stussy' },
+  { time: '01:30 — 03:00', name: 'Tiësto' }
 ]
 
 const items = base.map((b, i) => ({
