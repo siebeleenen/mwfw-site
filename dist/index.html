@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Moeder Waarom Fuif-en Wij? — MWFW</title>
   <meta name="description" content="Moeder Waarom Fuif-en Wij? — De leukste fuif van Herk-de-Stad. 14/03/2026 | Industrieweg 1062 | Verwarmde tent, happy hour, fuifbus en meer." />
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/galleryX.jpg" type="image/jpeg">
+  <link rel="apple-touch-icon" href="/assets/galleryX.jpg">
+  <link rel="shortcut icon" href="/assets/galleryX.jpg" type="image/jpeg">
   <!-- Tailwind CDN (for quick demo). For production use a build step with Tailwind CLI/PostCSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -28,8 +32,8 @@
     }
     .poster-shadow { filter: drop-shadow(0 6px 20px rgba(0,0,0,0.6)); }
   </style>
-  <script type="module" crossorigin src="/assets/index-eULL-5Jb.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-B6F16JoR.css">
+  <script type="module" crossorigin src="/assets/index-U3WjYdEf.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BLfRBn3d.css">
 </head>
 <body class="min-h-screen font-sans text-mwfw gradient-bg text-white">
   <header x-data="{open:false}" class="bg-transparent">
@@ -39,20 +43,19 @@
           <img src="/assets/galleryX.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" />
         </div>
         <div>
-          <a href="#home" class="text-2xl font-extrabold tracking-tight text-accent">Moeder Waarom <span class="block text-lg">Fuif-en Wij?</span></a>
+          <a href="index.html" class="text-2xl font-extrabold tracking-tight text-accent">Moeder Waarom <span class="block text-lg">Fuif-en Wij?</span></a>
           <div class="text-sm text-accent/80">14 maart 2026 — Industrieweg 1062, Herk-de-Stad</div>
         </div>
       </div>
 
       <div class="hidden md:flex items-center gap-4">
-        <nav class="flex gap-4 text-accent/90 font-medium">
-          <a href="#home" class="hover:text-white">Home</a>
-          <a href="#lineup" class="hover:text-white">Line‑up</a>
-          <a href="#tickets" class="hover:text-white">Tickets</a>
-          <a href="#praktisch" class="hover:text-white">Praktisch</a>
+          <nav class="flex gap-4 text-accent/90 font-medium">
+            <a href="index.html" class="hover:text-white">Home</a>
+            <a href="lineup.html" class="hover:text-white">Line‑up</a>
+            <a href="praktisch.html" class="hover:text-white">Praktisch</a>
         </nav>
         <div class="flex items-center gap-4">
-          <a href="https://linktr.ee/mwfw" target="_blank" rel="noopener" class="bg-accent text-black px-4 py-2 rounded-md font-semibold">Koop tickets</a>
+          <a href="https://mwfw.eventsquare.store/nl/bii3zfvrpfjr" target="_blank" rel="noopener" class="bg-accent text-black px-4 py-2 rounded-md font-semibold">Koop tickets</a>
           <!-- Social links (bigger) -->
           <a href="https://www.facebook.com/mwfwhds" target="_blank" rel="noopener" aria-label="Facebook" class="text-accent/90 hover:text-white p-2 rounded-full bg-white/10 hover:bg-white/20 ring-1 ring-white/10">
             <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 10-11.5 9.9v-7H8.9v-2.9h1.6V9.1c0-1.6 1-2.5 2.4-2.5.7 0 1.4.1 1.4.1v1.6h-.8c-.8 0-1 0-1 1v1.4h1.7l-.3 2.9h-1.4v7A10 10 0 0022 12z"/></svg>
@@ -74,11 +77,10 @@
     <!-- Mobile menu -->
     <div x-show="open" class="md:hidden bg-black/40 backdrop-blur-sm">
       <div class="px-6 py-4 flex flex-col gap-3">
-        <a href="#home" class="text-accent font-medium">Home</a>
-        <a href="#lineup" class="text-accent font-medium">Line‑up</a>
-        <a href="#tickets" class="text-accent font-medium">Tickets</a>
-        <a href="#praktisch" class="text-accent font-medium">Praktisch</a>
-        <a href="https://linktr.ee/mwfw" target="_blank" rel="noopener" class="mt-2 bg-accent text-black px-4 py-2 rounded-md font-semibold inline-block">Koop tickets</a>
+        <a href="index.html" class="text-accent font-medium">Home</a>
+        <a href="lineup.html" class="text-accent font-medium">Line‑up</a>
+        <a href="praktisch.html" class="text-accent font-medium">Praktisch</a>
+        <a href="https://mwfw.eventsquare.store/nl/bii3zfvrpfjr" target="_blank" rel="noopener" class="mt-2 bg-accent text-black px-4 py-2 rounded-md font-semibold inline-block">Koop tickets</a>
         <div class="mt-3 flex gap-4">
           <a href="https://www.facebook.com/mwfwhds" target="_blank" rel="noopener" aria-label="Facebook" class="text-accent/90 hover:text-white p-2 rounded-full bg-white/10 hover:bg-white/20 ring-1 ring-white/10">
             <svg class="w-9 h-9" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 10-11.5 9.9v-7H8.9v-2.9h1.6V9.1c0-1.6 1-2.5 2.4-2.5.7 0 1.4.1 1.4.1v1.6h-.8c-.8 0-1 0-1 1v1.4h1.7l-.3 2.9h-1.4v7A10 10 0 0022 12z"/></svg>
@@ -95,60 +97,19 @@
     <!-- Hero -->
     <section id="home" class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center py-12">
       <div class="md:col-span-2 flex items-center">
-        <div class="relative bg-white/70 backdrop-blur-sm text-mwfw rounded-2xl p-8 md:p-12 poster-shadow w-full overflow-hidden">
-          <img src="/assets/poster.jpg" alt="MWFW poster" class="absolute inset-0 w-full h-full object-cover opacity-20" />
-          <div class="relative flex flex-col md:flex-row items-start md:items-center gap-6">
-            <div>
-              <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">MOEDER<br>WAAROM<br>FUIF‑EN WIJ?</h1>
-              <p class="mt-4 text-lg text-mwfw/75">Voor het 24ste jaar op rij organiseert Chiro Arika de leukste fuif van Herk‑de‑Stad en omstreken.</p>
-
-              <div class="mt-6 flex gap-3">
-                <a href="#tickets" class="inline-block bg-mwfw text-accent px-5 py-3 rounded-md font-semibold">Tickets & Info</a>
-                <a href="#praktisch" class="inline-block border-2 border-mwfw text-mwfw px-5 py-3 rounded-md font-medium">Praktisch</a>
-              </div>
-
-              <dl class="mt-6 grid grid-cols-2 gap-2 text-sm relative z-10">
-                <div><dt class="font-semibold">Locatie</dt><dd>Industrieweg 1062, 3540 Herk‑de‑Stad</dd></div>
-                <div><dt class="font-semibold">Datum</dt><dd>14 maart 2026</dd></div>
-                <div><dt class="font-semibold">Duur</dt><dd>7 uur</dd></div>
-                <div><dt class="font-semibold">Publiek</dt><dd>Openbaar</dd></div>
-              </dl>
-
-            </div>
-          </div>
-        </div>
+        <div id="hero-app" class="w-full"></div>
       </div>
 
       <aside class="md:col-span-1 text-center">
         <div class="bg-white/95 text-mwfw p-8 rounded-lg sticky top-24 poster-shadow">
-          <!-- Countdown (now above the date) -->
-          <div id="countdown" class="mb-6">
-            <h3 class="text-lg font-bold">Countdown</h3>
-            <div class="mt-3 grid grid-cols-4 gap-2">
-              <div class="bg-mwfw/5 rounded-md p-3 ring-1 ring-mwfw/10">
-                <div id="cc-days" class="text-2xl font-extrabold">0</div>
-                <div class="text-xs text-mwfw/70">Dagen</div>
-              </div>
-              <div class="bg-mwfw/5 rounded-md p-3 ring-1 ring-mwfw/10">
-                <div id="cc-hours" class="text-2xl font-extrabold">0</div>
-                <div class="text-xs text-mwfw/70">Uren</div>
-              </div>
-              <div class="bg-mwfw/5 rounded-md p-3 ring-1 ring-mwfw/10">
-                <div id="cc-mins" class="text-2xl font-extrabold">0</div>
-                <div class="text-xs text-mwfw/70">Minuten</div>
-              </div>
-              <div class="bg-mwfw/5 rounded-md p-3 ring-1 ring-mwfw/10">
-                <div id="cc-secs" class="text-2xl font-extrabold">0</div>
-                <div class="text-xs text-mwfw/70">Seconden</div>
-              </div>
-            </div>
-            <div id="cc-done" class="hidden mt-3 text-sm font-semibold">We zijn live! 🎉</div>
+          <div class="flex flex-col items-center">
+            <div class="text-xs uppercase tracking-widest text-mwfw/60">Countdown</div>
+            <div id="countdown" class="mt-2 font-mono text-3xl md:text-4xl font-bold tracking-tight">00:00:00:00</div>
+            <div class="mt-1 text-[10px] uppercase tracking-[0.25em] text-mwfw/50">Dagen Uren Min Sec</div>
           </div>
-          <div class="text-5xl font-extrabold">14<br><span class="text-3xl">03</span><br><span class="text-2xl">2026</span></div>
           <div class="mt-6">
-            <a href="https://linktr.ee/mwfw" target="_blank" rel="noopener" class="block bg-accent text-black px-4 py-2 rounded-md font-semibold">Koop tickets</a>
+            <a href="https://mwfw.eventsquare.store/nl/bii3zfvrpfjr" target="_blank" rel="noopener" class="block bg-accent text-black px-4 py-2 rounded-md font-semibold">Koop tickets</a>
           </div>
-          <div class="mt-4 text-sm text-mwfw/70">Verwarmde buitentent · Gratis fuifbus · Happy Hour 21:00–22:00 (2 voor 1)</div>
         </div>
       </aside>
     </section>
@@ -164,112 +125,23 @@
       </div>
     </section>
 
-    <!-- Tabs -> Line-up / Info / Practical / Gallery / Contact -->
-    <section id="tabs" x-data="{tab:'lineup'}" class="bg-transparent rounded-lg">
-      <div class="max-w-4xl mx-auto bg-white/5 p-6 rounded-lg">
-        <nav class="flex gap-4 justify-center mb-6">
-          <button data-tab="lineup" @click="tab='lineup'" :class="tab==='lineup'? 'bg-accent text-black' : 'text-accent/70'" class="px-4 py-2 rounded-md font-semibold inline-flex items-center gap-2">
-            <img src="/assets/galleryX.jpg" alt="" class="w-5 h-5 rounded-full object-cover" />
-            <span>Line‑up</span>
-          </button>
-          <button data-tab="info" @click="tab='info'" :class="tab==='info'? 'bg-accent text-black' : 'text-accent/70'" class="px-4 py-2 rounded-md font-semibold inline-flex items-center gap-2">
-            <img src="/assets/galleryX.jpg" alt="" class="w-5 h-5 rounded-full object-cover" />
-            <span>Info</span>
-          </button>
-          <button data-tab="tickets" @click="tab='tickets'" :class="tab==='tickets'? 'bg-accent text-black' : 'text-accent/70'" class="px-4 py-2 rounded-md font-semibold inline-flex items-center gap-2">
-            <img src="/assets/galleryX.jpg" alt="" class="w-5 h-5 rounded-full object-cover" />
-            <span>Tickets</span>
-          </button>
-          <button data-tab="praktisch" @click="tab='praktisch'" :class="tab==='praktisch'? 'bg-accent text-black' : 'text-accent/70'" class="px-4 py-2 rounded-md font-semibold inline-flex items-center gap-2">
-            <img src="/assets/galleryX.jpg" alt="" class="w-5 h-5 rounded-full object-cover" />
-            <span>Praktisch</span>
-          </button>
-        </nav>
-
-        <div>
-          <!-- Line-up -->
-          <div x-show="tab==='lineup'" x-cloak class="space-y-6">
-            <h2 class="text-2xl font-bold text-center">LINE‑UP</h2>
-            <p class="text-center text-accent/80">Line‑up wordt binnenkort aangekondigd — stay tuned!</p>
-
-            <!-- Placeholder schedule card -->
-            <div class="grid md:grid-cols-3 gap-4">
-              <div class="bg-white/10 p-4 rounded-lg">
-                <h3 class="font-semibold">21:00 — 22:30</h3>
-                <p class="text-sm text-accent/70">Main DJ — TBA</p>
-              </div>
-              <div class="bg-white/10 p-4 rounded-lg">
-                <h3 class="font-semibold">22:30 — 00:00</h3>
-                <p class="text-sm text-accent/70">Guest Act — TBA</p>
-              </div>
-              <div class="bg-white/10 p-4 rounded-lg">
-                <h3 class="font-semibold">00:00 — 02:00</h3>
-                <p class="text-sm text-accent/70">Afterparty — DJ TBA</p>
-              </div>
-            </div>
-
-            <div class="mt-6 text-center">
-              <a href="#tickets" class="inline-block bg-accent text-black px-6 py-3 rounded-md font-bold">Koop je tickets — linktr.ee/mwfw</a>
-            </div>
-          </div>
-
-          <!-- Info -->
-          <div x-show="tab==='info'" x-cloak class="space-y-6">
-            <h2 class="text-2xl font-bold text-center">INFORMATIE</h2>
-            <ul class="grid md:grid-cols-2 gap-4">
-              <li class="bg-white/5 p-4 rounded-lg">
-                <h3 class="font-semibold">Voorzieningen</h3>
-                <p>Verwarmde buitentent, gratis toiletten, vestiaire, fietsenparking.</p>
-              </li>
-              <li class="bg-white/5 p-4 rounded-lg">
-                <h3 class="font-semibold">Eten & Drinken</h3>
-                <p>Hot‑dogs, cocktailbar, happy hour 21:00–22:00 (2 voor 1 op bier & fris).</p>
-              </li>
-              <li class="bg-white/5 p-4 rounded-lg">
-                <h3 class="font-semibold">Vervoer</h3>
-                <p>Gratis fuifbus vanuit omliggende gemeenten. <br>Adres: Industrieweg 1062, 3540 Herk‑de‑Stad.</p>
-              </li>
-              <li class="bg-white/5 p-4 rounded-lg">
-                <h3 class="font-semibold">Veiligheid</h3>
-                <p>Beveiliging aanwezig. Respecteer de huisregels op locatie. Event is 18+ tenzij anders aangegeven.</p>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Tickets -->
-          <div x-show="tab==='tickets'" x-cloak class="space-y-6">
-            <h2 class="text-2xl font-bold text-center">TICKETS</h2>
-            <p class="text-center text-accent/80">Koop je tickets via onze link: <a href="https://linktr.ee/mwfw" target="_blank" class="underline">linktr.ee/mwfw</a></p>
-
-            <div class="mt-6 text-center">
-              <p class="text-accent/80">Koop je tickets via onze centrale ticketpagina. (Prijzen en beschikbaarheid worden daar vermeld.)</p>
-              <div class="mt-4">
-                <a href="https://linktr.ee/mwfw" target="_blank" rel="noopener" class="inline-block bg-accent text-black px-6 py-3 rounded-md font-bold">Naar tickets</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Praktisch -->
-          <div x-show="tab==='praktisch'" x-cloak class="space-y-6">
-            <h2 class="text-2xl font-bold text-center">PRAKTISCH — Wat moet ik weten?</h2>
-            <ul class="list-disc pl-5 space-y-2 text-accent/80">
-              <li>Verwarmde buitentent — trek lagen aan, het kan fris zijn.</li>
-              <li>Vestiaire aanwezig (kleine vergoeding mogelijk).</li>
-              <li>Fuifbus: check onze sociale kanalen voor haltes en uren.</li>
-              <li>Geen grote tassen of verboden voorwerpen — volg de veiligheidsinstructies.</li>
-            </ul>
-
-            <div class="mt-4 bg-white/5 p-4 rounded-lg">
-              <h3 class="font-semibold">Contact voor logistiek / groepsreserveringen</h3>
-              <p class="text-accent/80">Email: <a href="mailto:info@mwfw.be" class="underline">info@mwfw.be</a> • Website: <a href="http://www.mwfw.be" class="underline">www.mwfw.be</a></p>
-            </div>
-          </div>
-
-          <!-- Gallery and Contact removed per request -->
-
+    <!-- Aftermovie Video (moved below sponsors) -->
+    <section id="aftermovie" class="max-w-4xl mx-auto px-6 py-8">
+      <div class="bg-white/5 p-6 rounded-lg poster-shadow ring-1 ring-white/10">
+        <h2 class="text-2xl font-bold">Aftermovie 2023</h2>
+        <p class="text-accent/80 mt-2">Bekijk de MWFW 2023 aftermovie.</p>
+        <div class="mt-4 rounded-xl overflow-hidden ring-1 ring-white/10 aspect-video">
+          <video controls preload="metadata" class="w-full h-full" poster="/assets/poster.jpg">
+            <source src="/assets/aftermovie-2023.mp4" type="video/mp4" />
+            Je browser ondersteunt de video‑tag niet.
+            <a href="/assets/aftermovie-2023.mp4" class="underline">Download de video</a>.
+          </video>
         </div>
       </div>
     </section>
+
+    <!-- Tabs -> Line-up / Info / Practical / Gallery / Contact -->
+      <!-- Tabs removed: standalone pages handle Line-up, Tickets, Praktisch -->
 
   </main>
 
@@ -277,70 +149,32 @@
     <div class="max-w-7xl mx-auto px-6 text-center text-accent/70">
       <div class="flex flex-col md:flex-row items-center justify-between gap-4">
         <div>© Chiro Arika — Moeder Waarom Fuif‑en Wij? — 2026</div>
-        <div>Website demo — <a href="http://www.mwfw.be" class="underline">mwfw.be</a></div>
+         <div>Alle rechten voorbehouden</div>
       </div>
     </div>
   </footer>
 
-  <!-- Small script: keyboard shortcuts (T -> tickets) and hash -> tab activation -->
   <script>
-    // Keyboard shortcut: T opens tickets
-    document.addEventListener('keydown', (e) => {
-      if (e.key.toLowerCase() === 't') location.hash = '#tickets';
-    });
-
-    // When the hash changes (or on load), try to activate the matching tab button
-    function activateTabFromHash() {
-      const h = location.hash.replace('#','');
-      if (!h) return;
-      const btn = document.querySelector(`[data-tab="${h}"]`);
-      if (btn) {
-        btn.click();
-        const tabs = document.getElementById('tabs');
-        if (tabs) tabs.scrollIntoView({behavior: 'smooth'});
-      }
-    }
-
-    window.addEventListener('hashchange', activateTabFromHash);
-    window.addEventListener('load', activateTabFromHash);
-
-    // Countdown to 14 March 2026 21:00 local time
+    // Minimal countdown to 14 March 2026 21:00 local time -> writes to #countdown as DD:HH:MM:SS
     (function initCountdown() {
-      const dEl = document.getElementById('cc-days');
-      const hEl = document.getElementById('cc-hours');
-      const mEl = document.getElementById('cc-mins');
-      const sEl = document.getElementById('cc-secs');
-      const doneEl = document.getElementById('cc-done');
-      if (!dEl || !hEl || !mEl || !sEl) return;
-
-      const target = new Date('2026-03-14T21:00:00'); // local time
-
+      const out = document.getElementById('countdown');
+      if (!out) return;
+      const target = new Date('2026-03-14T21:00:00');
+      function fmt(n, w = 2) { return String(Math.max(0, n)).padStart(w, '0'); }
       function tick() {
         const now = new Date();
         let diff = target - now;
         if (diff <= 0) {
-          dEl.textContent = '0';
-          hEl.textContent = '0';
-          mEl.textContent = '0';
-          sEl.textContent = '0';
-          if (doneEl) doneEl.classList.remove('hidden');
+          out.textContent = '00:00:00:00';
           clearInterval(timer);
           return;
         }
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        diff -= days * (1000 * 60 * 60 * 24);
-        const hours = Math.floor(diff / (1000 * 60 * 60));
-        diff -= hours * (1000 * 60 * 60);
-        const mins = Math.floor(diff / (1000 * 60));
-        diff -= mins * (1000 * 60);
+        const days = Math.floor(diff / 86400000); diff -= days * 86400000;
+        const hours = Math.floor(diff / 3600000); diff -= hours * 3600000;
+        const mins = Math.floor(diff / 60000); diff -= mins * 60000;
         const secs = Math.floor(diff / 1000);
-
-        dEl.textContent = String(days);
-        hEl.textContent = String(hours).padStart(2, '0');
-        mEl.textContent = String(mins).padStart(2, '0');
-        sEl.textContent = String(secs).padStart(2, '0');
+        out.textContent = `${fmt(days)}:${fmt(hours)}:${fmt(mins)}:${fmt(secs)}`;
       }
-
       tick();
       const timer = setInterval(tick, 1000);
     })();
