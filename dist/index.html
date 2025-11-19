@@ -6,9 +6,9 @@
   <title>Moeder Waarom Fuif-en Wij? — MWFW</title>
   <meta name="description" content="Moeder Waarom Fuif-en Wij? — De leukste fuif van Herk-de-Stad. 14/03/2026 | Industrieweg 1062 | Verwarmde tent, happy hour, fuifbus en meer." />
   <!-- Favicon -->
-  <link rel="icon" href="/img/galleryX.jpg" type="image/jpeg">
-  <link rel="apple-touch-icon" href="/img/galleryX.jpg">
-  <link rel="shortcut icon" href="/img/galleryX.jpg" type="image/jpeg">
+  <link rel="icon" href="/img/tekstballon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/img/tekstballon.png">
+  <link rel="shortcut icon" href="/img/tekstballon.png" type="image/png">
   <!-- Tailwind CDN (for quick demo). For production use a build step with Tailwind CLI/PostCSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -31,18 +31,57 @@
       background: linear-gradient(90deg, #6b5a1e 0%, rgba(43,42,32,1) 65%);
     }
     .poster-shadow { filter: drop-shadow(0 6px 20px rgba(0,0,0,0.6)); }
+    
+    @keyframes glitch {
+      0%, 100% { 
+        transform: translate(0);
+        text-shadow: 2px 2px #f4e7c8, -2px -2px #6b5a1e;
+      }
+      25% { 
+        transform: translate(-2px, 2px);
+        text-shadow: -2px 2px #f4e7c8, 2px -2px #6b5a1e;
+      }
+      50% { 
+        transform: translate(2px, -2px);
+        text-shadow: 2px -2px #f4e7c8, -2px 2px #6b5a1e;
+      }
+      75% { 
+        transform: translate(-2px, -2px);
+        text-shadow: -2px -2px #f4e7c8, 2px 2px #6b5a1e;
+      }
+    }
+    
+    @keyframes pulse-glow {
+      0%, 100% { 
+        opacity: 1;
+        filter: brightness(1);
+      }
+      50% { 
+        opacity: 0.85;
+        filter: brightness(1.3);
+      }
+    }
+    
+    .glitch-text {
+      animation: glitch 3s infinite, pulse-glow 2s ease-in-out infinite;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+    }
   </style>
-  <script type="module" crossorigin src="/assets/main-CSTx8cw6.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/main-D_dD--EX.css">
+  <script type="module" crossorigin src="/assets/main-CE1wT_w3.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-BM1O0Uqc.css">
 </head>
 <body class="min-h-screen font-sans text-mwfw gradient-bg text-white">
   <header x-data="{open:false}" class="bg-mwfw/95 backdrop-blur-sm sticky top-0 z-50 shadow-lg">
     <div class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
       <div class="flex items-center gap-4">
-        <div>
+        <div class="hidden md:block">
           <a href="index.html" class="text-3xl font-extrabold tracking-tight text-accent">Moeder Waarom Fuif-en Wij?</a>
-          <div class="text-sm text-accent/80">14 maart 2026 — Industrieterrein Herk-de-Stad</div>
+          <div class="text-sm text-accent/80">14 maart 2026 — Industrieweg 1062, Herk-de-Stad</div>
         </div>
+        <a href="index.html" class="md:hidden">
+          <img src="/img/tekstballon.png" alt="MWFW" class="h-12 w-auto">
+        </a>
       </div>
 
       <div class="hidden md:flex items-center gap-4">
@@ -133,10 +172,10 @@
                 </div>
                 <div id="cc-done" class="hidden text-lg font-semibold">We zijn live! 🎉</div>
               </div>
-              <div class="text-base md:text-lg text-white/80 text-center leading-relaxed">
-                <div class="mb-2">🎪 Verwarmde buitentent</div>
-                <div class="mb-2">🚌 Gratis fuifbus</div>
-                <div>🍺 Happy Hour&nbsp;21:00–22:00&nbsp;(2&nbsp;voor&nbsp;1)</div>
+              <div class="text-center mt-6">
+                <div class="glitch-text text-2xl md:text-3xl text-accent uppercase">
+                  25 JAAR MWFW!!!
+                </div>
               </div>
             </div>
           </div>
