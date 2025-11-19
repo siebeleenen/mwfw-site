@@ -32,8 +32,8 @@
     }
     .poster-shadow { filter: drop-shadow(0 6px 20px rgba(0,0,0,0.6)); }
   </style>
-  <script type="module" crossorigin src="/assets/main-CP4fBfMF.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/main-DQyiPjiu.css">
+  <script type="module" crossorigin src="/assets/main-CSTx8cw6.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-D_dD--EX.css">
 </head>
 <body class="min-h-screen font-sans text-mwfw gradient-bg text-white">
   <header x-data="{open:false}" class="bg-mwfw/95 backdrop-blur-sm sticky top-0 z-50 shadow-lg">
@@ -41,7 +41,7 @@
       <div class="flex items-center gap-4">
         <div>
           <a href="index.html" class="text-3xl font-extrabold tracking-tight text-accent">Moeder Waarom Fuif-en Wij?</a>
-          <div class="text-sm text-accent/80">14 maart 2026 — Industrieweg 1062, Herk-de-Stad</div>
+          <div class="text-sm text-accent/80">14 maart 2026 — Industrieterrein Herk-de-Stad</div>
         </div>
       </div>
 
@@ -101,10 +101,10 @@
               <img src="/img/poster.jpg" alt="MWFW poster" class="w-full h-auto object-cover" />
             </div>
             
-            <!-- Black bar with text and button -->
-            <div class="bg-black/90 backdrop-blur-sm rounded-lg p-6 flex flex-col md:flex-row items-center justify-between gap-4">
-              <p class="text-white text-lg md:text-xl leading-snug">Voor het <span class="font-extrabold">25ste jaar op rij</span> organiseert Chiro Arika de leukste fuif van Herk‑de‑Stad en omstreken. Mis het niet!</p>
-              <a href="https://linktr.ee/mwfw" target="_blank" rel="noopener" class="inline-block bg-accent text-black px-6 py-3 rounded-md font-semibold whitespace-nowrap flex-shrink-0">Tickets & Info</a>
+            <!-- 25 jaar text bar -->
+            <div class="bg-accent/10 backdrop-blur-sm rounded-lg p-6 ring-2 ring-accent/30 flex flex-col md:flex-row items-center justify-between gap-4">
+              <p class="text-accent text-lg md:text-xl leading-snug font-medium">Voor de <span class="font-extrabold text-white">25ste keer op rij</span> de allerleukste fuif van Herk-de-Stad en omstreken! Dit wil je echt niet missen. De party van het jaar wacht op jou!</p>
+              <a href="https://linktr.ee/mwfw" target="_blank" rel="noopener" class="inline-block bg-accent text-black px-6 py-3 rounded-md font-bold whitespace-nowrap flex-shrink-0 hover:bg-accent/90 transition">Tickets & Info</a>
             </div>
           </div>
 
@@ -161,11 +161,9 @@
 
     <!-- Sponsors (Vue will render the grid here) -->
     <section id="sponsors" class="py-12">
-      <div class="bg-white/5 p-6 rounded-lg text-center">
-        <h2 class="text-2xl font-bold">Met dank aan onze sponsors!</h2>
-        <div class="mt-6">
-          <div id="app"></div>
-        </div>
+      <div class="bg-white px-6 py-12 text-center rounded-xl">
+        <h2 class="text-2xl font-bold text-mwfw mb-8">Met dank aan onze sponsors!</h2>
+        <div id="app"></div>
       </div>
     </section>
 
@@ -182,8 +180,7 @@
       </div>
     </div>
   </footer>
-
-
+
   <!-- Small script: keyboard shortcuts (T -> tickets) and hash -> tab activation -->
   <script>
     // Keyboard shortcut: T goes to tickets page

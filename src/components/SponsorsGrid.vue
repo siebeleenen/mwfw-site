@@ -4,8 +4,8 @@
       Voeg sponsorlogo's toe in <code>src/assets/sponsors/</code> (png/jpg/svg/webp).
     </div>
     <div v-else class="flex flex-wrap items-center justify-center gap-6 md:gap-8 lg:gap-12">
-      <div v-for="logo in logos" :key="logo.src" class="bg-white/6 p-4 rounded-md flex items-center justify-center">
-        <img :src="logo.src" :alt="logo.alt" class="h-20 md:h-24 lg:h-28 w-auto object-contain" />
+      <div v-for="logo in logos" :key="logo.src" class="flex items-center justify-center">
+        <img :src="logo.src" :alt="logo.alt" class="h-16 w-auto object-contain" />
       </div>
     </div>
   </div>
