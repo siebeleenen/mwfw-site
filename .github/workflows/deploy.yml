@@ -29,6 +29,15 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: List build output
+        run: |
+          echo "== dist root =="
+          ls -la dist
+          echo "== dist/img =="
+          ls -la dist/img || echo "no dist/img folder"
+          echo "== dist/index.html head snippet =="
+          sed -n '1,60p' dist/index.html
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
