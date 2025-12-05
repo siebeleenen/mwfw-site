@@ -38,6 +38,19 @@ jobs:
           echo "== dist/index.html head snippet =="
           sed -n '1,60p' dist/index.html
 
+      - name: Force copy public files into dist (safety)
+        run: |
+          mkdir -p dist/img
+          if [ -d public/img ]; then cp -R public/img dist/; fi
+          if [ -f public/robots.txt ]; then cp -f public/robots.txt dist/; fi
+          if [ -f public/sitemap.xml ]; then cp -f public/sitemap.xml dist/; fi
+          if [ -f public/CNAME ]; then cp -f public/CNAME dist/; fi
+          if [ -f public/.nojekyll ]; then cp -f public/.nojekyll dist/; fi
+          echo "== dist root after force copy =="
+          ls -la dist
+          echo "== dist/img after force copy =="
+          ls -la dist/img || true
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
