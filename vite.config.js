@@ -13,6 +13,7 @@ module.exports = defineConfig(async () => {
 					main: resolve(__dirname, 'index.html'),
 					lineup: resolve(__dirname, 'lineup.html'),
 					praktisch: resolve(__dirname, 'praktisch.html'),
+					djcontest: resolve(__dirname, 'djcontest.html'),
 				}
 			}
 		}
