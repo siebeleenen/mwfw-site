@@ -56,7 +56,7 @@
             Veilig stemmen
           </h3>
           <p class="text-accent/70 text-sm leading-relaxed">
-            Stemmen verloopt veilig via Google Forms. Je stem blijft vertrouwelijk.
+            Stemmen verloopt veilig via Google Forms. Je stem wordt anoniem verwerkt en blijft vertrouwelijk.
           </p>
         </div>
       </div>
