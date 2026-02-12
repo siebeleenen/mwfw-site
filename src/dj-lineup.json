@@ -3,27 +3,85 @@
     {
       "time": "21:00 — 22:00",
       "name": "DJ FONKY",
-      "image": "DJ FONKY.webp"
+      "image": "DJ FONKY.webp",
+      "bio": "Muziek is altijd al een grote passie geweest. DJ Fonky brengt niet gewoon beats – hij brengt een vibe, een gevoel, een ervaring. Met een missie om mensen te laten losgaan en hun zorgen te laten vergeten, neemt hij je mee in een wereld van pure energie.",
+      "genres": ["Trance", "Hard House", "Tech House", "Eurodance"],
+      "highlights": [
+        "Known for explosive remixes and mashups",
+        "Rising star in Limburg's party scene"
+      ],
+      "socials": {
+        "soundcloud": "https://soundcloud.com/lander-wolfs?ref=clipboard&p=a&c=1&si=8f1010d42c274aadb753168f40ac2233&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
+        "instagram": "https://instagram.com/dj_fonky"
+      }
     },
     {
       "time": "22:00 — 23:00",
       "name": "LAX",
-      "image": "LAX.jpg"
+      "image": "LAX.jpg",
+      "bio": "All-round DJ uit België die de dansvloer domineert met een eclectische mix van genres. Van Tomorrowland tot intieme club nights – LAX weet altijd de perfecte vibe te creëren en het publiek mee te nemen op een muzikale reis.",
+      "genres": ["House", "Techno", "Dance", "Club"],
+      "highlights": [
+        "🏆 Winner MWFW DJ Contest 2026",
+        "Performed at Tomorrowland Belgium",
+        "Resident DJ at Ferm Tenten Fuif",
+        "Played at Verkiezingen Diepenbeek & Leuven",
+        "Regular at Fitlink Diepenbeek events"
+      ],
+      "socials": {
+        "instagram": "https://instagram.com/laxmusicbe",
+        "soundcloud": "https://soundcloud.com/lax-187297550?ref=clipboard&p=i&c=1&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
+        "email": "laxmusicbe@gmail.com"
+      }
     },
     {
       "time": "23:00 — 00:30",
       "name": "RUBY XX",
-      "image": "RUBY.jpg"
+      "image": "RUBY.jpg",
+      "bio": "🏆 Winnares van MNM Start To DJ 2025! RUBY XX is een allround DJ uit Lummen die dit jaar de grootste festivals en events van het land rockt. Met haar energieke sets en perfecte track selectie weet ze elke dansvloer in vuur en vlam te zetten.",
+      "genres": ["Moombahton", "Dance", "Techno", "Hip-Hop", "House", "Dancehall"],
+      "highlights": [
+        "🏆 MNM Start To DJ 2025 Winner",
+        "Tomorrowland 2026 lineup",
+        "Maanrock featured artist",
+        "Genk on Stage resident",
+        "One of Belgium's hottest rising talents"
+      ],
+      "socials": {
+        "website": "https://rubyxx.net",
+        "instagram": "https://instagram.com/dj_rubyxx",
+        "soundcloud": "https://soundcloud.com/dj_rubyxx?ref=clipboard&p=i&c=1&si=CD53128389D3436FB479549A57CF585E&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing&utm_content=link_in_bio"
+      }
     },
     {
       "time": "00:30 — 01:30",
       "name": "ARTHUR LEWIS",
-      "image": "ARTHUR LEWIS.jpg"
+      "image": "ARTHUR LEWIS.jpg",
+      "bio": "Met meer dan 46K volgers en een internationale carrière is Arthur Lewis een gevestigde naam in de elektronische muziekscene. Van Fitz Club Madrid tot de grootste festivals in België – Arthur weet telkens weer te verrassen met zijn unieke sound en technische skills.",
+      "genres": ["Electronic", "House", "Techno", "Progressive"],
+      "highlights": [
+        "46K+ Instagram followers",
+        "International performances (Spain, Netherlands, Germany)",
+        "Fitz Club Madrid resident",
+        "Released: 'Need You' ft. Ceres",
+        "Known for high-energy festival sets"
+      ],
+      "socials": {
+        "instagram": "https://instagram.com/deejay_arthurlewis"
+      }
     },
     {
       "time": "01:30 — 03:00",
       "name": "TBA",
-      "image": "TBA.jpg"
+      "image": "TBA.jpg",
+      "bio": "De ultieme closing act blijft nog even geheim... Wie sluit deze legendarische avond af? Stay tuned!",
+      "genres": ["Mystery", "Surprise"],
+      "highlights": [
+        "Special closing act",
+        "To be announced soon",
+        "Epic finale guaranteed"
+      ],
+      "socials": {}
     }
   ]
 }
