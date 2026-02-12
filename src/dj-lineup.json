@@ -4,9 +4,14 @@
       "time": "21:00 — 22:00",
       "name": "DJ FONKY",
       "image": "DJ FONKY.webp",
-      "bio": "Muziek is altijd al een grote passie geweest. DJ Fonky brengt niet gewoon beats – hij brengt een vibe, een gevoel, een ervaring. Met een missie om mensen te laten losgaan en hun zorgen te laten vergeten, neemt hij je mee in een wereld van pure energie.",
+      "imagePosition": "object-top",
+      "bio": "Muziek is voor hem altijd al een grote passie geweest. DJ Fonky brengt niet gewoon beats – hij brengt een vibe, een gevoel, een ervaring. Met een missie om mensen te laten losgaan en hun zorgen te laten vergeten, neemt hij je mee in een wereld van pure energie.",
       "genres": ["Trance", "Hard House", "Tech House", "Eurodance"],
       "highlights": [
+        "Moeder Waarom Fuif-en Wij?! 2025",
+        "Hippie Shake 2024",
+        "Bokparty 2025",
+        "Post X-mos Herk 2025",
         "Known for explosive remixes and mashups",
         "Rising star in Limburg's party scene"
       ],
@@ -19,6 +24,7 @@
       "time": "22:00 — 23:00",
       "name": "LAX",
       "image": "LAX.jpg",
+      "imagePosition": "object-top",
       "bio": "All-round DJ uit België die de dansvloer domineert met een eclectische mix van genres. Van Tomorrowland tot intieme club nights – LAX weet altijd de perfecte vibe te creëren en het publiek mee te nemen op een muzikale reis.",
       "genres": ["House", "Techno", "Dance", "Club"],
       "highlights": [
@@ -38,6 +44,8 @@
       "time": "23:00 — 00:30",
       "name": "RUBY XX",
       "image": "RUBY.jpg",
+      "detailImage": "rubyxx_details.webp",
+      "imagePosition": "object-center",
       "bio": "🏆 Winnares van MNM Start To DJ 2025! RUBY XX is een allround DJ uit Lummen die dit jaar de grootste festivals en events van het land rockt. Met haar energieke sets en perfecte track selectie weet ze elke dansvloer in vuur en vlam te zetten.",
       "genres": ["Moombahton", "Dance", "Techno", "Hip-Hop", "House", "Dancehall"],
       "highlights": [
@@ -57,7 +65,9 @@
       "time": "00:30 — 01:30",
       "name": "ARTHUR LEWIS",
       "image": "ARTHUR LEWIS.jpg",
-      "bio": "Met meer dan 46K volgers en een internationale carrière is Arthur Lewis een gevestigde naam in de elektronische muziekscene. Van Fitz Club Madrid tot de grootste festivals in België – Arthur weet telkens weer te verrassen met zijn unieke sound en technische skills.",
+      "detailImage": "arthur_lewis_details.webp",
+      "imagePosition": "object-center",
+      "bio": "Met meer dan 46K volgers en een internationale carrière is Arthur Lewis een gevestigde naam in de elektronische muziekscene. Van Fitz Club Madrid tot de grootste festivals in België – Arthur weet telkens weer te verrassen met zijn unieke sound en muzikale skills.",
       "genres": ["Electronic", "House", "Techno", "Progressive"],
       "highlights": [
         "46K+ Instagram followers",
@@ -67,13 +77,18 @@
         "Known for high-energy festival sets"
       ],
       "socials": {
-        "instagram": "https://instagram.com/deejay_arthurlewis"
+        "instagram": "https://instagram.com/deejay_arthurlewis",
+        "facebook": "https://www.facebook.com/arthurlewismusic/?locale=nl_BE",
+        "spotify": "https://open.spotify.com/artist/5f8AMXoLuwWjvBburQj5uM",
+        "soundcloud": "https://soundcloud.com/arthurlewisofficial",
+        "youtube": "https://www.youtube.com/@ArthurLewismusic"
       }
     },
     {
       "time": "01:30 — 03:00",
       "name": "TBA",
       "image": "TBA.jpg",
+      "imagePosition": "object-center",
       "bio": "De ultieme closing act blijft nog even geheim... Wie sluit deze legendarische avond af? Stay tuned!",
       "genres": ["Mystery", "Surprise"],
       "highlights": [

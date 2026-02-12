@@ -25,6 +25,7 @@ const fallbackImg = '/img/galleryX.jpg'
 
 const items = lineupData.lineup.map((dj) => ({
   ...dj,
-  img: djImageMap[dj.image] || fallbackImg
+  img: djImageMap[dj.image] || fallbackImg,
+  detailImg: dj.detailImage ? (djImageMap[dj.detailImage] || djImageMap[dj.image] || fallbackImg) : (djImageMap[dj.image] || fallbackImg)
 }))
 </script>

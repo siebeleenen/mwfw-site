@@ -1,15 +1,5 @@
 <template>
   <div class="max-w-2xl mx-auto space-y-4">
-    <!-- Instruction Banner -->
-    <div class="bg-accent/10 backdrop-blur-sm rounded-xl p-4 border border-accent/30 text-center">
-      <p class="text-accent font-semibold text-sm flex items-center justify-center gap-2">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-        Klik op een DJ voor meer info
-      </p>
-    </div>
-
     <article 
       v-for="(item, idx) in items" 
       :key="idx" 
@@ -26,7 +16,7 @@
       </div>
       <div class="flex-shrink-0 bg-accent/20 group-hover:bg-accent group-hover:scale-110 rounded-full p-3 transition-all">
         <svg class="w-6 h-6 text-accent group-hover:text-mwfw transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       </div>
     </article>
@@ -46,7 +36,7 @@
             <!-- Header with Image -->
             <div class="relative h-48 md:h-64 overflow-hidden">
               <img 
-                :src="selectedDJ.img" 
+                :src="selectedDJ.detailImg || selectedDJ.img" 
                 :alt="selectedDJ.name" 
                 class="w-full h-full object-cover"
               />
