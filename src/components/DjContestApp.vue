@@ -1,72 +1,94 @@
 <template>
-  <div class="max-w-4xl mx-auto px-6 py-12 md:py-20">
+  <div class="max-w-5xl mx-auto px-6 py-12 md:py-20">
     
-    <!-- Hero / Intro -->
+    <!-- Winner Announcement -->
     <section class="text-center space-y-8">
-      <!-- Live Badge -->
-      <div class="inline-flex items-center gap-2 bg-accent/20 px-4 py-2 rounded-full border border-accent/30">
-        <span class="relative flex h-3 w-3">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-3 w-3 bg-accent"></span>
-        </span>
-        <span class="text-accent font-semibold text-sm uppercase tracking-wide">Live</span>
+      <!-- Closed Badge -->
+      <div class="inline-flex items-center gap-2 bg-accent px-4 py-2 rounded-full border border-accent/30 shadow-lg">
+        <svg class="w-4 h-4 text-mwfw" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+        </svg>
+        <span class="text-mwfw font-bold text-sm uppercase tracking-wide">Contest Gesloten</span>
       </div>
       
       <!-- Title -->
       <div class="space-y-4">
         <h1 class="text-4xl md:text-6xl font-black text-accent leading-tight">
-          DJ Contest – Stem op jouw favoriet 🎧
+          LAX is de winnaar! 🏆
         </h1>
         
-        <p class="text-lg md:text-xl text-accent/80 max-w-2xl mx-auto">
-          Stem tijdens de DJ Contest en bepaal wie wint.
+        <p class="text-xl md:text-2xl text-accent/90 max-w-3xl mx-auto font-semibold">
+          De allereerste MWFW DJ Contest 2026
         </p>
-      </div>
-
-      <!-- Main CTA Button -->
-      <div class="pt-6">
-        <a 
-          href="https://docs.google.com/forms/d/e/1FAIpQLSco-9AvfFofTECl0gGhY7wPdc9AGpYAxtVlRuM4K3C91GG4Lg/viewform"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="w-full md:w-auto inline-flex items-center justify-center gap-3 bg-accent text-mwfw px-8 py-5 md:py-6 rounded-xl font-bold text-lg md:text-xl hover:bg-accent/90 transition-all hover:scale-105 shadow-2xl touch-manipulation min-h-[56px]"
-        >
-          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
-          </svg>
-          Ga naar de stemming
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-          </svg>
-        </a>
       </div>
     </section>
 
-    <!-- Extra Info -->
-    <section class="mt-16 bg-white/5 backdrop-blur-sm rounded-xl p-6 md:p-8 ring-1 ring-white/10">
-      <div class="flex items-start gap-4">
-        <div class="flex-shrink-0">
-          <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-          </svg>
+    <!-- Winner Card -->
+    <section class="mt-12">
+      <div class="bg-gradient-to-br from-accent/20 via-accent/10 to-accent/5 backdrop-blur-sm rounded-2xl overflow-hidden ring-2 ring-accent/40 shadow-2xl">
+        <!-- Winner Image -->
+        <div class="relative h-64 md:h-96 overflow-hidden bg-gradient-to-b from-blue-600/20 to-black/60">
+          <img 
+            src="/src/assets/djs/LAX.jpg" 
+            alt="LAX - DJ Contest Winnaar" 
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-mwfw via-transparent to-transparent"></div>
+          
+          <!-- Trophy Badge -->
+          <div class="absolute top-6 right-6 bg-accent rounded-full p-4 shadow-2xl animate-pulse">
+            <svg class="w-8 h-8 text-mwfw" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+          </div>
         </div>
+
+        <!-- Winner Info -->
+        <div class="p-8 md:p-12 text-center space-y-6">
+          <div>
+            <h2 class="text-4xl md:text-5xl font-black text-accent mb-3">
+              LAX
+            </h2>
+            <p class="text-accent/80 text-lg md:text-xl">
+              Winnaar MWFW DJ Contest 2026
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Thank You Message -->
+    <section class="mt-16 text-center space-y-6">
+      <div class="max-w-3xl mx-auto space-y-4">
+        <h3 class="text-2xl md:text-3xl font-bold text-accent">
+          Bedankt aan iedereen! 🙌
+        </h3>
         
-        <div class="flex-1">
-          <h3 class="text-accent font-semibold text-lg mb-2">
-            Veilig stemmen
-          </h3>
-          <p class="text-accent/70 text-sm leading-relaxed">
-            Stemmen verloopt veilig via Google Forms. Je stem wordt anoniem verwerkt en blijft vertrouwelijk.
+        <div class="text-accent/80 text-base md:text-lg space-y-3 leading-relaxed">
+          <p>
+            Wat een onvergetelijke avond! De allereerste MWFW DJ Contest is een feit en wat was het close. 
+            Jullie hebben massaal gestemd en de sfeer was elektrisch.
+          </p>
+          <p>
+            <strong class="text-accent">Proficiat LAX</strong> met deze geweldige overwinning! 
+            Je hebt het publiek compleet meegenomen met je set.
+          </p>
+          <p>
+            Een dikke merci aan <strong class="text-accent">alle deelnemende DJ's</strong> die de dansvloer lieten shaken. 
+            Jullie hebben er samen voor gezorgd dat deze eerste editie onvergetelijk was!
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Help section -->
-    <section class="text-center mt-12">
-      <div class="inline-block bg-white/5 backdrop-blur-sm rounded-xl px-6 py-4 ring-1 ring-white/10">
-        <p class="text-accent/70 text-sm">
-          Problemen met stemmen? Meld het bij de organisatie.
+    <!-- Call to action for next year -->
+    <section class="mt-16 text-center">
+      <div class="inline-block bg-gradient-to-r from-accent/20 via-accent/10 to-accent/20 backdrop-blur-sm rounded-xl px-8 py-6 ring-1 ring-accent/20">
+        <p class="text-accent/90 text-lg font-semibold">
+          Tot volgend jaar bij MWFW 2027! 🎉
+        </p>
+        <p class="text-accent/60 text-sm mt-2">
+          Misschien wordt het dan jouw moment om te shinen?
         </p>
       </div>
     </section>
@@ -75,6 +97,5 @@
 </template>
 
 <script setup>
-// Simple component - no complex logic needed
-// Just redirects to Google Form
+// Winner page - no interactive logic needed
 </script>
