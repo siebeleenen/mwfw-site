@@ -22,7 +22,15 @@
         </p>
       </div>
     </section>
-
+        <!-- Line-up Link (Mobile only) -->
+    <section class="block md:hidden mt-12 text-center">
+      <a href="lineup.html" class="inline-block w-full md:w-auto">
+        <div class="bg-gradient-to-br from-blue-500/20 to-blue-600/10 backdrop-blur-sm rounded-xl p-6 border border-blue-400/30 hover:scale-[1.02] transition-transform">
+          <p class="text-accent/90 text-sm font-semibold mb-1">Bekijk de volledige</p>
+          <p class="text-accent text-2xl font-black">Line-up 🎵</p>
+        </div>
+      </a>
+    </section>
     <!-- Winner Card -->
     <section class="mt-12">
       <div class="bg-gradient-to-br from-accent/20 via-accent/10 to-accent/5 backdrop-blur-sm rounded-2xl overflow-hidden ring-2 ring-accent/40 shadow-2xl">
@@ -42,7 +50,7 @@
             </svg>
           </div>
         </div>
-
+        
         <!-- Winner Info -->
         <div class="p-8 md:p-12 text-center space-y-6">
           <div>
@@ -80,6 +88,8 @@
         </div>
       </div>
     </section>
+
+    
 
     <!-- Call to action for next year -->
     <section class="mt-16 text-center">

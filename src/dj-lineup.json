@@ -1,0 +1,29 @@
+{
+  "lineup": [
+    {
+      "time": "21:00 — 22:00",
+      "name": "DJ FONKY",
+      "image": "DJ FONKY.webp"
+    },
+    {
+      "time": "22:00 — 23:00",
+      "name": "LAX",
+      "image": "LAX.jpg"
+    },
+    {
+      "time": "23:00 — 00:30",
+      "name": "RUBY XX",
+      "image": "RUBY.jpg"
+    },
+    {
+      "time": "00:30 — 01:30",
+      "name": "ARTHUR LEWIS",
+      "image": "ARTHUR LEWIS.jpg"
+    },
+    {
+      "time": "01:30 — 03:00",
+      "name": "TBA",
+      "image": "TBA.jpg"
+    }
+  ]
+}
