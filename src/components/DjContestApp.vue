@@ -88,21 +88,6 @@
         </div>
       </div>
     </section>
-
-    
-
-    <!-- Call to action for next year -->
-    <section class="mt-16 text-center">
-      <div class="inline-block bg-gradient-to-r from-accent/20 via-accent/10 to-accent/20 backdrop-blur-sm rounded-xl px-8 py-6 ring-1 ring-accent/20">
-        <p class="text-accent/90 text-lg font-semibold">
-          Tot volgend jaar bij MWFW 2027! 🎉
-        </p>
-        <p class="text-accent/60 text-sm mt-2">
-          Misschien wordt het dan jouw moment om te shinen?
-        </p>
-      </div>
-    </section>
-
   </div>
 </template>
 
