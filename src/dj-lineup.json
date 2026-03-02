@@ -86,17 +86,25 @@
     },
     {
       "time": "01:30 — 03:00",
-      "name": "TBA",
-      "image": "TBA.jpg",
+      "name": "BOYS ON DECK",
+      "image": "boysondeck.jpg",
       "imagePosition": "object-center",
-      "bio": "De ultieme closing act blijft nog even geheim... Wie sluit deze legendarische avond af? Stay tuned!",
-      "genres": ["Mystery", "Surprise"],
+      "bio": "All-round DJ-Trio dat de laatste uurtjes van de nacht in vuur en vlam zet. Met een mix van genres en een onstuitbare energie zorgen ze ervoor dat niemand nog stil kan staan. Van de grootste feesten in Limburg tot spanse clubs. Boys on Deck is een naam die je niet wilt missen als je van een goede party houdt.",
+      "genres": ["House", "EDM", "Techno", "Dance", "Trance"],
       "highlights": [
-        "Special closing act",
-        "To be announced soon",
-        "Epic finale guaranteed"
+        "Versuz, Spanje en Poe-Este Miekes + vele andere feesten",
+        "Beestenfeest 2024",
+        "Mystery party 2025",
+        "Chill Out Party 2025",
+        "Ferm tenten fuif 2024"
       ],
-      "socials": {}
+      "socials": {
+        "facebook": "https://www.facebook.com/Boys-on-Deck-107103565430968/",
+        "instagram": "https://instagram.com/boysondeck_music?igshid=YmMyMTA2M2Y=",
+        "soundcloud": "https://on.soundcloud.com/WtwKejVvMGGZSEpq7",
+        "tiktok": "https://www.tiktok.com/@boysondeck?_t=8z7xmdi8yly&_r=1"
+
+      }
     }
   ]
 }
