@@ -28,9 +28,22 @@
     <div class="max-w-7xl mx-auto px-6 py-6">
       <!-- Mobile header -->
       <div class="md:hidden flex items-center justify-between">
-        <a href="index.html">
-          <img src="/img/tekstballon.png" alt="MWFW" class="h-12 w-auto">
-        </a>
+        <div class="flex items-center gap-3">
+          <a href="index.html">
+            <img src="/img/tekstballon.png" alt="MWFW" class="h-12 w-auto">
+          </a>
+          <!-- Mobile Countdown (Compact) -->
+          <div x-data="countdown"
+            class="flex gap-1 text-accent font-mono font-bold items-center text-sm bg-black/20 px-2 py-1 rounded border border-white/10">
+            <span x-text="days"></span><span class="text-xs opacity-70">d</span>
+            <span class="opacity-50">:</span>
+            <span x-text="hours"></span><span class="text-xs opacity-70">u</span>
+            <span class="opacity-50">:</span>
+            <span x-text="mins"></span><span class="text-xs opacity-70">m</span>
+            <span class="opacity-50">:</span>
+            <span x-text="secs"></span><span class="text-xs opacity-70">s</span>
+          </div>
+        </div>
         <button @click="open = !open" class="p-3 bg-accent/90 rounded-md text-black transition-transform duration-300" :class="{'rotate-90': open}">
           <span x-show="!open">☰</span>
           <span x-show="open">✕</span>
@@ -49,7 +62,31 @@
           <a href="djcontest.html" class="hover:text-white px-4 py-2 rounded-full hover:bg-white/10">DJ Contest</a>
           <a href="praktisch.html" class="px-4 py-2 rounded-full bg-white text-mwfw font-semibold">Praktisch</a>
         </nav>
-        
+
+        <!-- Desktop Countdown -->
+        <div x-data="countdown"
+          class="hidden lg:flex gap-3 text-accent font-mono font-bold items-center bg-black/20 px-4 py-2 rounded-lg border border-white/10 shadow-inner">
+          <div class="flex flex-col items-center w-10">
+            <span x-text="days" class="text-xl leading-none"></span>
+            <span class="text-[9px] uppercase opacity-70 tracking-wider">Dagen</span>
+          </div>
+          <span class="text-xl opacity-50 -mt-3">:</span>
+          <div class="flex flex-col items-center w-10">
+            <span x-text="hours" class="text-xl leading-none"></span>
+            <span class="text-[9px] uppercase opacity-70 tracking-wider">Uur</span>
+          </div>
+          <span class="text-xl opacity-50 -mt-3">:</span>
+          <div class="flex flex-col items-center w-10">
+            <span x-text="mins" class="text-xl leading-none"></span>
+            <span class="text-[9px] uppercase opacity-70 tracking-wider">Min</span>
+          </div>
+          <span class="text-xl opacity-50 -mt-3">:</span>
+          <div class="flex flex-col items-center w-10">
+            <span x-text="secs" class="text-xl leading-none"></span>
+            <span class="text-[9px] uppercase opacity-70 tracking-wider">Sec</span>
+          </div>
+        </div>
+
         <div class="flex items-center gap-4">
           <a href="https://mwfw.eventsquare.store/nl/mdktue4sygby/9tnvdqwbiiwj" target="_blank" rel="noopener" class="bg-accent text-black px-4 py-2 rounded-md font-semibold">Koop tickets</a>
           <a href="https://www.facebook.com/mwfwhds" target="_blank" rel="noopener" aria-label="Facebook" class="text-accent/90 hover:text-white p-2 rounded-full bg-white/10 hover:bg-white/20 ring-1 ring-white/10">
@@ -161,5 +198,45 @@
     </div>
   </footer>
   <script type="module" src="/src/main.js"></script>
+
+  <!-- Alpine.js countdown script -->
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('countdown', () => ({
+        days: '0',
+        hours: '00',
+        mins: '00',
+        secs: '00',
+        target: new Date('2026-03-14T21:00:00'),
+        init() {
+          this.tick();
+          setInterval(() => this.tick(), 1000);
+        },
+        tick() {
+          const now = new Date();
+          let diff = this.target - now;
+          if (diff <= 0) {
+            this.days = '0';
+            this.hours = '00';
+            this.mins = '00';
+            this.secs = '00';
+            return;
+          }
+          const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+          diff -= d * (1000 * 60 * 60 * 24);
+          const h = Math.floor(diff / (1000 * 60 * 60));
+          diff -= h * (1000 * 60 * 60);
+          const m = Math.floor(diff / (1000 * 60));
+          diff -= m * (1000 * 60);
+          const s = Math.floor(diff / 1000);
+
+          this.days = String(d);
+          this.hours = String(h).padStart(2, '0');
+          this.mins = String(m).padStart(2, '0');
+          this.secs = String(s).padStart(2, '0');
+        }
+      }))
+    })
+  </script>
 </body>
 </html>
