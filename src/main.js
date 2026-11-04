@@ -5,7 +5,6 @@ import LineupApp from './lineup-app.vue'
 import InfoApp from './components/InfoApp.vue'
 import TicketsApp from './components/TicketsApp.vue'
 import PraktischApp from './components/PraktischApp.vue'
-import DjContestApp from './components/DjContestApp.vue'
 
 // Mount Sponsors app
 const sponsorsEl = document.getElementById('app')
@@ -26,7 +25,3 @@ if (ticketsEl) createApp(TicketsApp).mount(ticketsEl)
 // Mount Praktisch app
 const praktischEl = document.getElementById('praktisch-app')
 if (praktischEl) createApp(PraktischApp).mount(praktischEl)
-
-// Mount DJ Contest app
-const djContestEl = document.getElementById('djcontest-app')
-if (djContestEl) createApp(DjContestApp).mount(djContestEl)

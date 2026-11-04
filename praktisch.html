@@ -12,7 +12,7 @@
   </script>
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <style>
-    .gradient-bg { background: linear-gradient(90deg, #6b5a1e 0%, rgba(43,42,32,1) 65%); }
+    .gradient-bg { background: radial-gradient(circle at 5% 50%, #3B9436 5%, #378834 15.4%, #307932 23.9%, #2D6C2E 29.5%, #2A5C28 38.4%, #264B21 45.6%, #21391C 54%, #1A2818 62.5%, #121B12 71.6%, #0A0F0A 81%, #060907 90.4%, #040505 98.7%) fixed; }
     .poster-shadow { filter: drop-shadow(0 6px 20px rgba(0,0,0,0.6)); }
     @keyframes blink {
       from { opacity: .6 }
@@ -59,7 +59,6 @@
         <nav class="flex gap-4 text-accent/90 font-medium">
           <a href="index.html" class="hover:text-white px-4 py-2 rounded-full hover:bg-white/10">Home</a>
           <a href="lineup.html" class="hover:text-white px-4 py-2 rounded-full hover:bg-white/10">Line‑up</a>
-          <a href="djcontest.html" class="hover:text-white px-4 py-2 rounded-full hover:bg-white/10">DJ Contest</a>
           <a href="praktisch.html" class="px-4 py-2 rounded-full bg-white text-mwfw font-semibold">Praktisch</a>
         </nav>
 
@@ -107,7 +106,6 @@
       <div class="px-6 py-4 flex flex-col gap-3">
         <a href="index.html" class="text-accent font-medium">Home</a>
         <a href="lineup.html" class="text-accent font-medium">Line‑up</a>
-        <a href="djcontest.html" class="text-accent font-medium">DJ Contest</a>
         <a href="praktisch.html" class="text-accent font-medium">Praktisch</a>
         <a href="https://mwfw.eventsquare.store/nl/mdktue4sygby/9tnvdqwbiiwj" target="_blank" rel="noopener" class="mt-2 bg-accent text-black px-4 py-2 rounded-md font-semibold inline-block">Koop tickets</a>
         <div class="mt-3 flex gap-4">
@@ -192,7 +190,7 @@
   <footer class="bg-black/40 py-8 mt-12">
     <div class="max-w-7xl mx-auto px-6 text-center text-accent/70">
       <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-        <div>© Chiro Arika — Moeder Waarom Fuif‑en Wij? — 2026</div>
+        <div>© Chiro Arika — Moeder Waarom Fuif‑en Wij? — 2027</div>
         <div>Alle rechten voorbehouden</div>
       </div>
     </div>
@@ -207,7 +205,7 @@
         hours: '00',
         mins: '00',
         secs: '00',
-        target: new Date('2026-03-14T21:00:00'),
+        target: new Date('2027-03-06T21:00:00'),
         init() {
           this.tick();
           setInterval(() => this.tick(), 1000);
