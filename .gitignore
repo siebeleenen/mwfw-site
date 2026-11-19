@@ -1,0 +1,14 @@
+# Afhankelijkheden: "npm install" maakt deze map (GitHub Actions doet "npm ci")
+node_modules/
+
+# Build-output: GitHub Actions bouwt de site zelf bij elke push naar main
+dist/
+
+# Originele foto's: te groot voor git. Enkel geoptimaliseerde (webp) selecties horen in public/img
+_fotos-origineel/
+
+# Systeem- en editorbestanden
+.DS_Store
+Thumbs.db
+*.log
+.vite/
