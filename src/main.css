@@ -247,6 +247,8 @@ background: radial-gradient(circle at 5% 50%, #3B9436 5%, #378834 15.4%, #307932
 }
 .mwfw-marquee__group svg { width: 15px; height: 15px; flex: none; }
 @keyframes mwfw-marquee { to { transform: translateX(-50%); } }
+/* computer: even stilzetten met de muis om te lezen */
+@media (hover: hover) { .mwfw-marquee:hover .mwfw-marquee__track { animation-play-state: paused; } }
 
 /* Ticket (enkel desktop) */
 .mwfw-ticket {
@@ -490,6 +492,8 @@ background: radial-gradient(circle at 5% 50%, #3B9436 5%, #378834 15.4%, #307932
 .dj-card--more:hover .dj-card__more-arrow { transform: translateX(4px); }
 
 @media (prefers-reduced-motion: reduce) {
-  .mwfw-marquee__track, .mwfw-ticket__stamp svg, .mwfw-live-dot::after { animation: none !important; }
+  /* De band blijft bewust lopen (ook als de gsm "minder beweging" vraagt), maar rustiger */
+  .mwfw-marquee__track { animation-duration: 56s; }
+  .mwfw-ticket__stamp svg, .mwfw-live-dot::after { animation: none !important; }
   .mwfw-ticket, .dj-card, .dj-card__img { transition: none !important; }
 }
