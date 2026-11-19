@@ -1,0 +1,8 @@
+{
+  "_uitleg": "Vul per fase de naam, de prijs (bv. \"€12\") en de status in. Status: \"uitverkocht\", \"beschikbaar\" of \"binnenkort\". Staat er minstens één fase op \"beschikbaar\", dan toont de hele site automatisch 'Tickets nu online'. Zolang er niets op \"beschikbaar\" staat: 'Voorverkoop start binnenkort'. Alles uitverkocht: 'Uitverkocht!'.",
+  "fases": [
+    { "naam": "Early bird", "prijs": "", "status": "binnenkort" },
+    { "naam": "Fase 2", "prijs": "", "status": "binnenkort" },
+    { "naam": "Fase 3", "prijs": "", "status": "binnenkort" }
+  ]
+}

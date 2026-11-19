@@ -158,7 +158,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 const props = defineProps({
   items: { type: Array, required: true }
@@ -166,15 +166,44 @@ const props = defineProps({
 
 const selectedDJ = ref(null)
 
+// Houd de link in de adresbalk gelijk met de open pop-up (bv. lineup.html#ruby-xx)
+const setHash = (slug) => {
+  history.replaceState(null, '', location.pathname + location.search + (slug ? `#${slug}` : ''))
+}
+
 const openModal = (dj) => {
   selectedDJ.value = dj
   document.body.style.overflow = 'hidden'
+  if (dj.slug) setHash(dj.slug)
 }
 
 const closeModal = () => {
   selectedDJ.value = null
   document.body.style.overflow = ''
+  setHash('')
 }
+
+// Directe link vanaf de homepage-kaarten: open meteen de pop-up van die DJ
+const openFromHash = () => {
+  const slug = decodeURIComponent(location.hash.slice(1))
+  const dj = slug && props.items.find((item) => item.slug === slug)
+  if (dj) openModal(dj)
+}
+
+const onKeydown = (e) => {
+  if (e.key === 'Escape' && selectedDJ.value) closeModal()
+}
+
+onMounted(() => {
+  openFromHash()
+  window.addEventListener('hashchange', openFromHash)
+  window.addEventListener('keydown', onKeydown)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('hashchange', openFromHash)
+  window.removeEventListener('keydown', onKeydown)
+})
 </script>
 
 <style scoped>

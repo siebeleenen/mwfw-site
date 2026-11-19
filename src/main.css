@@ -8,10 +8,22 @@
   font-family: 'Rosewood Fill';
   src: url('/fonts/RosewoodFill.ttf') format('truetype');
   font-display: swap;
+  /* Enkel de tekens die Rosewood echt tekent. @ # + < = > \ ^ | ~ zijn LEEG in dit
+     lettertype (daardoor was de @ onzichtbaar) en worden hieronder aangevuld. */
+  unicode-range: U+20-22, U+24-2A, U+2C-3B, U+3F, U+41-5B, U+5D, U+5F-7B, U+7D, U+A1-A3, U+A5,
+    U+A8-AB, U+AE-AF, U+B2-B4, U+B7-BB, U+BF-D6, U+D8-F6, U+F8-FF, U+131, U+141-142, U+152-153,
+    U+160-161, U+178, U+17D-17E, U+192, U+2C6-2C7, U+2C9, U+2D8-2DD, U+3BC, U+2010, U+2013-2014,
+    U+2018-201A, U+201C-201E, U+2022, U+2026, U+2039-203A, U+2122, U+2219;
+}
+/* Ontbrekende tekens (o.a. @) in een stevige schreefletter die bij Rosewood past */
+@font-face {
+  font-family: 'Rosewood Fill';
+  src: local('Rockwell Bold'), local('Rockwell-Bold'), local('Georgia Bold'), local('Georgia-Bold');
+  unicode-range: U+23, U+2B, U+3C-3E, U+40, U+5C, U+5E, U+7C, U+7E, U+2011;
 }
 *, *::before, *::after,
 input, button, select, textarea {
-  font-family: 'Rosewood Fill', serif !important;
+  font-family: 'Rosewood Fill', Georgia, serif !important;
   font-weight: normal !important;
   font-synthesis: none;
 }
@@ -21,3 +33,463 @@ input, button, select, textarea {
 background: radial-gradient(circle at 5% 50%, #3B9436 5%, #378834 15.4%, #307932 23.9%, #2D6C2E 29.5%, #2A5C28 38.4%, #264B21 45.6%, #21391C 54%, #1A2818 62.5%, #121B12 71.6%, #0A0F0A 81%, #060907 90.4%, #040505 98.7%) fixed;
 }
 .poster-shadow { filter: drop-shadow(0 6px 20px rgba(0,0,0,0.6)); }
+
+/* ─────────────────────────────────────────────────────────────
+   Ticketknop (gsm): bolletje rechtsonder in iOS-stijl.
+   Tik op het bolletje → klapt open tot "Koop tickets".
+   Tik op "Koop tickets" → ticketshop. Tik op het pijltje → dicht.
+   ───────────────────────────────────────────────────────────── */
+.ticket-fab {
+  --fab-size: 58px;
+  --fab-ink: #2b2a20;
+  --fab-smooth: cubic-bezier(0.32, 0.72, 0, 1);    /* vloeiend, zoals iOS */
+  --fab-spring: cubic-bezier(0.34, 1.56, 0.64, 1); /* klein veer-effect */
+  position: fixed;
+  right: calc(16px + env(safe-area-inset-right));
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  z-index: 40;
+  -webkit-tap-highlight-color: transparent;
+  /* "backwards" (niet "both"): na de intro mag de animatie niet blijven hangen,
+     anders werkt de glas-vervaging (backdrop-filter) van de knop niet meer */
+  animation: ticket-fab-in 0.7s var(--fab-spring) 0.4s backwards;
+}
+
+.ticket-fab__shell {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  height: var(--fab-size);
+  border-radius: 999px;
+  color: var(--fab-ink);
+  /* "liquid glass" in MWFW-beige */
+  background: linear-gradient(180deg, rgba(255, 251, 241, 0.95) 0%, rgba(244, 231, 200, 0.9) 50%, rgba(226, 207, 163, 0.92) 100%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.9),     /* lichtrand bovenaan */
+    inset 0 -1.5px 2px rgba(120, 92, 35, 0.22),   /* schaduwrand onderaan */
+    0 0 0 0.5px rgba(0, 0, 0, 0.3),               /* haarlijn */
+    0 14px 34px -10px rgba(0, 0, 0, 0.65),        /* zachte diepe schaduw */
+    0 4px 10px rgba(0, 0, 0, 0.28);
+  transition: transform 0.5s var(--fab-spring);
+}
+/* glans bovenaan */
+.ticket-fab__shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(130% 85% at 28% -12%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0) 58%);
+  pointer-events: none;
+}
+/* af en toe een lichtflits over het bolletje */
+.ticket-fab__shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(110deg, rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0) 65%) no-repeat;
+  background-size: 300% 100%;
+  background-position: 100% 0;
+  pointer-events: none;
+  animation: ticket-fab-shine 7s ease-in-out 2.5s infinite;
+}
+.ticket-fab.is-open .ticket-fab__shell::after { animation: none; opacity: 0; }
+.ticket-fab:not(.is-open) .ticket-fab__shell:active { transform: scale(0.9); transition-duration: 0.15s; }
+
+.ticket-fab__link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 16px;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 999px;
+  outline: none;
+  transition: opacity 0.2s ease;
+}
+.ticket-fab.is-open .ticket-fab__link:active { opacity: 0.55; transition-duration: 0s; }
+.ticket-fab__link:focus-visible,
+.ticket-fab__close:focus-visible { box-shadow: inset 0 0 0 2px var(--fab-ink); }
+
+.ticket-fab__icon {
+  flex: none;
+  display: grid;
+  width: 26px;
+  height: 26px;
+  transform: rotate(-14deg);
+  transition: transform 0.6s var(--fab-spring);
+}
+.ticket-fab__icon svg { width: 100%; height: 100%; animation: ticket-fab-wiggle 7s ease-in-out 2.5s infinite; }
+.ticket-fab.is-open .ticket-fab__icon { transform: rotate(0deg) scale(0.92); }
+.ticket-fab.is-open .ticket-fab__icon svg { animation: none; }
+
+/* open-/dichtklappen zonder vaste breedtes (0fr → 1fr) */
+.ticket-fab__reveal {
+  display: grid;
+  grid-template-columns: 0fr;
+  transition: grid-template-columns 0.5s var(--fab-smooth);
+}
+.ticket-fab__reveal > span {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  overflow: hidden;
+}
+.ticket-fab.is-open .ticket-fab__reveal { grid-template-columns: 1fr; }
+
+.ticket-fab__label {
+  padding-left: 10px;
+  font-size: 17px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateX(8px);
+  transition: opacity 0.25s ease, filter 0.35s ease, transform 0.5s var(--fab-smooth);
+}
+.ticket-fab.is-open .ticket-fab__label { opacity: 1; filter: blur(0); transform: none; transition-delay: 0.06s; }
+
+.ticket-fab__reveal--close {
+  visibility: hidden;
+  transition: grid-template-columns 0.5s var(--fab-smooth), visibility 0s linear 0.5s;
+}
+.ticket-fab.is-open .ticket-fab__reveal--close {
+  visibility: visible;
+  transition: grid-template-columns 0.5s var(--fab-smooth), visibility 0s;
+}
+.ticket-fab__close {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin-right: 9px; /* zelfde middelpunt als de ronde kant van de pil */
+  border-radius: 999px;
+  color: var(--fab-ink);
+  background: rgba(43, 42, 32, 0.1);
+  box-shadow: inset 0 0.5px 0 rgba(255, 255, 255, 0.7);
+  outline: none;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: transform 0.5s var(--fab-spring), opacity 0.2s ease, background-color 0.2s ease;
+}
+.ticket-fab.is-open .ticket-fab__close { opacity: 1; transform: none; transition-delay: 0.1s; }
+.ticket-fab.is-open .ticket-fab__close:active { transform: scale(0.86); background: rgba(43, 42, 32, 0.2); transition-delay: 0s; }
+.ticket-fab__close svg { width: 15px; height: 15px; }
+
+@keyframes ticket-fab-in {
+  from { opacity: 0; transform: translateY(28px) scale(0.5); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes ticket-fab-shine {
+  0%       { background-position: 100% 0; }
+  18%, 100% { background-position: 0% 0; }
+}
+@keyframes ticket-fab-wiggle {
+  0%, 20%, 100% { transform: rotate(0) scale(1); }
+  5%  { transform: rotate(-9deg) scale(1.1); }
+  10% { transform: rotate(8deg) scale(1.1); }
+  15% { transform: rotate(-4deg) scale(1.04); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticket-fab, .ticket-fab *, .ticket-fab *::before, .ticket-fab *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Homepage: lopende band, ticket en line-up-kaarten
+   Kleuren van de site zelf: papier #f4e7c8, inkt #2b2a20, groen #3b9436
+   ───────────────────────────────────────────────────────────── */
+:root {
+  --mwfw-ink: #2b2a20;
+  --mwfw-paper: #f4e7c8;
+  --mwfw-green: #3b9436;
+  --mwfw-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Lopende band */
+.mwfw-marquee-wrap { overflow: hidden; padding: 22px 0; margin-top: -10px; }
+#ticket-marquee { min-height: 49px; } /* plaats vasthouden tot de band getekend is */
+@media (min-width: 1280px) {
+  /* op brede schermen zacht laten uitlopen aan de randen */
+  .mwfw-marquee-wrap {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+}
+.mwfw-marquee {
+  width: 116%;
+  margin-left: -8%;
+  transform: rotate(-3deg);
+  background: var(--mwfw-paper);
+  color: var(--mwfw-ink);
+  border-block: 2px solid var(--mwfw-ink);
+  box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.6);
+}
+.mwfw-marquee__track { display: flex; width: max-content; animation: mwfw-marquee 32s linear infinite; }
+.mwfw-marquee__group {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 18px;
+  padding: 12px 9px;
+  font-size: 21px;
+  line-height: 1;
+  white-space: nowrap;
+}
+.mwfw-marquee__group svg { width: 15px; height: 15px; flex: none; }
+@keyframes mwfw-marquee { to { transform: translateX(-50%); } }
+
+/* Ticket (enkel desktop) */
+.mwfw-ticket {
+  --notch: 14px;  /* straal van de inkepingen */
+  --stub: 230px;  /* breedte van het afscheurstrookje */
+  position: relative;
+  display: block;
+  max-width: 760px;
+  margin: 0 auto;
+  color: var(--mwfw-ink);
+  text-decoration: none;
+  /* drop-shadow volgt de vorm mét inkepingen (box-shadow zou weggeknipt worden) */
+  filter: drop-shadow(0 20px 28px rgba(0, 0, 0, 0.45)) drop-shadow(0 3px 6px rgba(0, 0, 0, 0.3));
+  transform: rotate(-1.5deg);
+  transition: transform 0.6s var(--mwfw-spring);
+}
+@media (hover: hover) { .mwfw-ticket:hover { transform: rotate(0deg) translateY(-4px); } }
+.mwfw-ticket:active { transform: rotate(0deg) scale(0.98); transition-duration: 0.2s; }
+.mwfw-ticket:focus-visible { outline: 3px solid var(--mwfw-paper); outline-offset: 6px; border-radius: 20px; }
+
+.mwfw-ticket__paper {
+  display: flex;
+  border-radius: 18px;
+  /* papier: lichte korrel + verloop */
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.17 0 0 0 0 0.16 0 0 0 0 0.12 0 0 0 0.16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    linear-gradient(160deg, #fcf5e3 0%, #f4e7c8 50%, #e8d5a9 100%);
+  /* inkepingen boven en onder, ter hoogte van de perforatie */
+  -webkit-mask:
+    radial-gradient(circle var(--notch) at calc(100% - var(--stub)) top, #0000 98%, #000) top / 100% 51% no-repeat,
+    radial-gradient(circle var(--notch) at calc(100% - var(--stub)) bottom, #0000 98%, #000) bottom / 100% 51% no-repeat;
+  mask:
+    radial-gradient(circle var(--notch) at calc(100% - var(--stub)) top, #0000 98%, #000) top / 100% 51% no-repeat,
+    radial-gradient(circle var(--notch) at calc(100% - var(--stub)) bottom, #0000 98%, #000) bottom / 100% 51% no-repeat;
+}
+.mwfw-ticket__main { flex: 1; min-width: 0; padding: 34px 36px; }
+.mwfw-ticket__eyebrow { display: flex; align-items: center; gap: 9px; font-size: 13px; letter-spacing: 0.14em; opacity: 0.8; }
+.mwfw-ticket__title { margin-top: 12px; font-size: clamp(48px, 6vw, 68px); line-height: 0.92; }
+.mwfw-ticket__info { display: grid; grid-template-columns: auto auto 1fr; gap: 16px 28px; margin-top: 22px; }
+.mwfw-ticket__info dt { font-size: 11px; letter-spacing: 0.16em; opacity: 0.55; }
+.mwfw-ticket__info dd { margin-top: 4px; font-size: 18px; line-height: 1.1; }
+
+/* Ticketfases */
+.mwfw-phases { display: grid; gap: 10px; margin-top: 24px; padding-top: 18px; border-top: 2px dashed rgba(43, 42, 32, 0.25); }
+.mwfw-phase { display: flex; align-items: baseline; gap: 10px; font-size: 16px; line-height: 1.1; }
+.mwfw-phase__dots { flex: 1; min-width: 16px; border-bottom: 2px dotted rgba(43, 42, 32, 0.3); transform: translateY(-4px); }
+.mwfw-phase__price { flex: none; }
+.mwfw-phase__badge {
+  flex: none;
+  min-width: 108px;
+  padding: 5px 10px 4px;
+  border: 1.5px solid currentColor;
+  border-radius: 999px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+.mwfw-phase.is-beschikbaar .mwfw-phase__badge { background: var(--mwfw-green); border-color: var(--mwfw-green); color: #fff; }
+.mwfw-phase.is-uitverkocht .mwfw-phase__name,
+.mwfw-phase.is-uitverkocht .mwfw-phase__price { text-decoration: line-through; text-decoration-thickness: 2px; opacity: 0.45; }
+.mwfw-phase.is-binnenkort { opacity: 0.6; }
+
+.mwfw-ticket__stub {
+  position: relative;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  width: var(--stub);
+  padding: 24px;
+}
+/* perforatie tussen de inkepingen */
+.mwfw-ticket__stub::before {
+  content: "";
+  position: absolute;
+  top: calc(var(--notch) + 8px);
+  bottom: calc(var(--notch) + 8px);
+  left: -1px;
+  width: 2px;
+  background: repeating-linear-gradient(180deg, rgba(43, 42, 32, 0.4) 0 8px, transparent 8px 14px);
+}
+.mwfw-ticket__barcode {
+  width: 140px;
+  height: 46px;
+  opacity: 0.85;
+  background: repeating-linear-gradient(90deg,
+    var(--mwfw-ink) 0 2px, transparent 2px 4px, var(--mwfw-ink) 4px 5px, transparent 5px 7px,
+    var(--mwfw-ink) 7px 10px, transparent 10px 11px, var(--mwfw-ink) 11px 12px, transparent 12px 15px,
+    var(--mwfw-ink) 15px 16px, transparent 16px 18px, var(--mwfw-ink) 18px 21px, transparent 21px 23px);
+}
+.mwfw-ticket__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-radius: 999px;
+  background: var(--mwfw-ink);
+  color: var(--mwfw-paper);
+  font-size: 17px;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+.mwfw-ticket__cta svg { width: 20px; height: 20px; transition: transform 0.4s var(--mwfw-spring); }
+.mwfw-ticket:hover .mwfw-ticket__cta svg { transform: translateX(4px); }
+
+/* draaiende stempel */
+.mwfw-ticket__stamp { position: absolute; top: -46px; right: -14px; width: 118px; height: 118px; transform: rotate(12deg); }
+.mwfw-ticket__stamp svg { width: 100%; height: 100%; animation: mwfw-spin 22s linear infinite; }
+@keyframes mwfw-spin { to { transform: rotate(360deg); } }
+
+.mwfw-live-dot { position: relative; flex: none; width: 9px; height: 9px; border-radius: 999px; background: var(--mwfw-green); }
+.mwfw-live-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: inherit;
+  animation: mwfw-ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+.mwfw-live-dot.is-off { background: rgba(43, 42, 32, 0.3); }
+.mwfw-live-dot.is-off::after { content: none; }
+@keyframes mwfw-ping { 75%, 100% { transform: scale(2.8); opacity: 0; } }
+
+/* Sectietitels in festivalstijl */
+.mwfw-eyebrow { display: flex; align-items: center; gap: 10px; font-size: 13px; letter-spacing: 0.16em; color: rgba(244, 231, 200, 0.7); }
+.mwfw-eyebrow::before { content: ""; width: 22px; height: 2px; background: currentColor; }
+.mwfw-highlight {
+  display: inline-block;
+  padding: 0.12em 0.22em 0.04em;
+  background: var(--mwfw-paper);
+  color: var(--mwfw-ink);
+  transform: rotate(-1.5deg);
+  box-shadow: 4px 4px 0 var(--mwfw-ink);
+}
+.mwfw-pill {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px 10px 16px;
+  border: 2px solid var(--mwfw-paper);
+  border-radius: 999px;
+  color: var(--mwfw-paper);
+  font-size: 15px;
+  line-height: 1;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.mwfw-pill svg { width: 16px; height: 16px; }
+.mwfw-pill:hover { background: var(--mwfw-paper); color: var(--mwfw-ink); }
+
+/* Line-up: swipe-kaarten */
+.dj-rail {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 20px;
+  padding: 6px 20px 22px;
+  scrollbar-width: none;
+}
+.dj-rail::-webkit-scrollbar { display: none; }
+.dj-rail > li { flex: none; width: min(62vw, 240px); scroll-snap-align: start; }
+@media (min-width: 1024px) {
+  .dj-rail { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; overflow: visible; padding-inline: 24px; }
+  .dj-rail > li { width: auto; }
+}
+.dj-card {
+  position: relative;
+  isolation: isolate;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  border-radius: 22px;
+  background: #151a12;
+  color: var(--mwfw-paper);
+  text-decoration: none;
+  box-shadow: 0 0 0 1px rgba(244, 231, 200, 0.12), 0 16px 32px -18px rgba(0, 0, 0, 0.9);
+  transition: transform 0.5s var(--mwfw-spring);
+  -webkit-tap-highlight-color: transparent;
+}
+.dj-card:active { transform: scale(0.97); transition-duration: 0.15s; }
+.dj-card__img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.32, 0.72, 0, 1);
+}
+.dj-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 45%, rgba(8, 10, 6, 0.9) 100%);
+}
+@media (hover: hover) {
+  .dj-card:hover { transform: translateY(-4px) rotate(-1deg); }
+  .dj-card:hover .dj-card__img { transform: scale(1.06); }
+}
+.dj-card__time {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 7px 10px 6px;
+  border-radius: 999px;
+  background: rgba(244, 231, 200, 0.92);
+  color: var(--mwfw-ink);
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+.dj-card__name { position: absolute; left: 16px; right: 16px; bottom: 16px; font-size: 27px; line-height: 0.95; text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55); }
+.dj-card--more {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 18px;
+  background: var(--mwfw-paper);
+  color: var(--mwfw-ink);
+}
+.dj-card--more::after { content: none; }
+.dj-card__more-label { font-size: 30px; line-height: 0.95; }
+.dj-card__more-arrow {
+  align-self: flex-end;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 999px;
+  background: var(--mwfw-ink);
+  color: var(--mwfw-paper);
+  transition: transform 0.4s var(--mwfw-spring);
+}
+.dj-card__more-arrow svg { width: 24px; height: 24px; }
+.dj-card--more:hover .dj-card__more-arrow { transform: translateX(4px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .mwfw-marquee__track, .mwfw-ticket__stamp svg, .mwfw-live-dot::after { animation: none !important; }
+  .mwfw-ticket, .dj-card, .dj-card__img { transition: none !important; }
+}
