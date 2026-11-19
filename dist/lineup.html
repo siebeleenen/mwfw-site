@@ -5,21 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Line‑up — MWFW</title>
   <link rel="icon" href="/img/tekstballon.png" type="image/png">
-  <link rel="apple-touch-icon" href="/assets/galleryX-BYcpx-Kc.jpg">
+  <link rel="apple-touch-icon" href="/img/tekstballon.png">
   <meta name="description" content="Line‑up — Moeder Waarom Fuif-en Wij?" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { theme: { extend: { colors: { mwfw: '#2b2a20', accent: '#f4e7c8' } } } }
-  </script>
-  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="canonical" href="https://mwfw.be/lineup.html" />
+  <!-- Deelpreview (WhatsApp, Facebook, Instagram, ...) -->
+  <meta property="og:site_name" content="Moeder Waarom Fuiven Wij" />
+  <meta property="og:locale" content="nl_BE" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Line-up — MWFW" />
+  <meta property="og:description" content="De line-up van Moeder Waarom Fuiven Wij. 6 maart 2027 in Herk-de-Stad." />
+  <meta property="og:url" content="https://mwfw.be/lineup.html" />
+  <meta property="og:image" content="https://mwfw.be/img/poster.jpg" />
+  <meta property="og:image:width" content="2048" />
+  <meta property="og:image:height" content="1183" />
+  <meta property="og:image:alt" content="Poster Moeder Waarom Fuiven Wij 2027" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Line-up — MWFW" />
+  <meta name="twitter:description" content="De line-up van Moeder Waarom Fuiven Wij. 6 maart 2027 in Herk-de-Stad." />
+  <meta name="twitter:image" content="https://mwfw.be/img/poster.jpg" />
+  <script defer src="https://unpkg.com/alpinejs@3.14.1/dist/cdn.min.js"></script>
   <style>
     .gradient-bg { background: radial-gradient(circle at 5% 50%, #3B9436 5%, #378834 15.4%, #307932 23.9%, #2D6C2E 29.5%, #2A5C28 38.4%, #264B21 45.6%, #21391C 54%, #1A2818 62.5%, #121B12 71.6%, #0A0F0A 81%, #060907 90.4%, #040505 98.7%) fixed; }
     .poster-shadow { filter: drop-shadow(0 6px 20px rgba(0,0,0,0.6)); }
     @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
     .menu-slide { animation: slideDown 0.3s ease-out; }
   </style>
-  <script type="module" crossorigin src="/assets/main-DdLqUdqW.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/main-ZV4mGeZi.css">
+  <script type="module" crossorigin src="/assets/main-CgT5y0cD.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-DyMaYK9P.css">
 </head>
 <body class="min-h-screen font-sans gradient-bg text-accent">
   <header x-data="{open:false}" class="bg-mwfw/95 backdrop-blur-sm sticky top-0 z-50 shadow-lg">
@@ -121,8 +133,8 @@
     </div>
   </header>
   <main class="max-w-5xl mx-auto px-6 py-12">
-    <h1 class="text-3xl font-bold text-center">LINE‑UP</h1>
-    <p class="text-center text-accent/80 mt-2">Bekijk de tijdslots en dj's hieronder.</p>
+    <h1 class="text-3xl font-bold text-center">LINE‑UP 2026</h1>
+    <p class="text-center text-accent/80 mt-2">Dit was de line-up van vorig jaar. De line-up van 2027 volgt binnenkort!</p>
     <div class="mt-8" id="lineup-app"></div>
   </main>
   <footer class="bg-black/40 py-8 mt-12">
@@ -132,7 +144,7 @@
         <div>Alle rechten voorbehouden</div>
       </div>
     </div>
-  </footer>
+  </footer>
   
   <!-- Alpine.js countdown script -->
   <script>

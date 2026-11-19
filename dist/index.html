@@ -7,18 +7,22 @@
   <title>Moeder Waarom Fuiven Wij | MWFW</title>
   <meta name="description" content="MWFW - Moeder Waarom Fuiven Wij?! Herk-de-Stad 6 maart 2027" />
     <meta name="keywords" content="mwfw, moeder waarom fuiven wij" />
-    <link rel="canonical" href="https://mwfw.be/" />
-    <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="Moeder Waarom Fuiven Wij | MWFW" />
-    <meta property="og:description" content="MWFW - Moeder Waarom Fuiven Wij?! Herk-de-Stad 6 maart 2027" />
-    <meta property="og:image" content="https://mwfw.be/img/tekstballon.png" />
-    <meta property="og:url" content="https://mwfw.be/" />
-    <meta property="og:type" content="website" />
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Moeder Waarom Fuiven Wij | MWFW" />
-    <meta name="twitter:description" content="MWFW - Moeder Waarom Fuiven Wij?! Herk-de-Stad 6 maart 2027" />
-    <meta name="twitter:image" content="https://mwfw.be/img/tekstballon.png" />
+  <link rel="canonical" href="https://mwfw.be/" />
+  <!-- Deelpreview (WhatsApp, Facebook, Instagram, ...) -->
+  <meta property="og:site_name" content="Moeder Waarom Fuiven Wij" />
+  <meta property="og:locale" content="nl_BE" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Moeder Waarom Fuiven Wij | MWFW" />
+  <meta property="og:description" content="MWFW - Moeder Waarom Fuiven Wij?! Zaterdag 6 maart 2027 in Herk-de-Stad. Koop nu je tickets!" />
+  <meta property="og:url" content="https://mwfw.be/" />
+  <meta property="og:image" content="https://mwfw.be/img/poster.jpg" />
+  <meta property="og:image:width" content="2048" />
+  <meta property="og:image:height" content="1183" />
+  <meta property="og:image:alt" content="Poster Moeder Waarom Fuiven Wij 2027" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Moeder Waarom Fuiven Wij | MWFW" />
+  <meta name="twitter:description" content="MWFW - Moeder Waarom Fuiven Wij?! Zaterdag 6 maart 2027 in Herk-de-Stad. Koop nu je tickets!" />
+  <meta name="twitter:image" content="https://mwfw.be/img/poster.jpg" />
   <!-- Favicon -->
   <link rel="icon" href="/img/tekstballon.png" type="image/png">
   <link rel="apple-touch-icon" href="/img/tekstballon.png">
@@ -38,22 +42,8 @@
     ]
   }
   </script>
-  <!-- Tailwind CDN (for quick demo). For production use a build step with Tailwind CLI/PostCSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            mwfw: '#2b2a20',
-            accent: '#f4e7c8'
-          }
-        }
-      }
-    }
-  </script>
   <!-- Alpine.js for small interactivity (tabs, mobile menu) -->
-  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.14.1/dist/cdn.min.js"></script>
   <style>
     /* Small extra polish */
     .gradient-bg {
@@ -124,8 +114,8 @@
       animation: slideDown 0.3s ease-out;
     }
   </style>
-  <script type="module" crossorigin src="/assets/main-DdLqUdqW.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/main-ZV4mGeZi.css">
+  <script type="module" crossorigin src="/assets/main-CgT5y0cD.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-DyMaYK9P.css">
 </head>
 
 <body class="min-h-screen font-sans text-accent gradient-bg">
@@ -297,8 +287,8 @@
         <div class="bg-gradient-to-br from-blue-500/20 to-blue-600/10 backdrop-blur-sm rounded-2xl p-4 border border-blue-400/30 hover:scale-[1.02] transition-transform">
           <div class="flex items-center justify-between">
             <div class="flex-1">
-              <p class="text-accent text-sm font-semibold">Bekijk alle DJ's</p>
-              <h3 class="text-accent text-xl font-black">Line-up 🎵</h3>
+              <p class="text-accent text-sm font-semibold">Bekijk de DJ's van vorig jaar</p>
+              <h3 class="text-accent text-xl font-black">Line-up 2026 🎵</h3>
             </div>
             <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -317,7 +307,7 @@
           <video controls preload="metadata" class="w-full h-full">
             <source src="/img/aftermovie-2023.mp4" type="video/mp4" />
             Je browser ondersteunt de video‑tag niet.
-            <a href="/assets/aftermovie-2023.mp4" class="underline">Download de video</a>.
+            <a href="/img/aftermovie-2023.mp4" class="underline">Download de video</a>.
           </video>
         </div>
       </div>
@@ -343,14 +333,8 @@
       </div>
     </div>
   </footer>
-
-  <!-- Small script: keyboard shortcuts (T -> tickets) and hash -> tab activation -->
-  <script>
-    // Keyboard shortcut: T goes to tickets page
-    document.addEventListener('keydown', (e) => {
-      if (e.key.toLowerCase() === 't') location.href = 'tickets.html';
-    });
 
+  <script>
     document.addEventListener('alpine:init', () => {
       Alpine.data('countdown', () => ({
         days: '0',

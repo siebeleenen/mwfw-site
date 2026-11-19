@@ -3,6 +3,19 @@
 @tailwind utilities;
 
 
+/* TEST: Rosewood Fill op ALLE tekst */
+@font-face {
+  font-family: 'Rosewood Fill';
+  src: url('/fonts/RosewoodFill.ttf') format('truetype');
+  font-display: swap;
+}
+*, *::before, *::after,
+input, button, select, textarea {
+  font-family: 'Rosewood Fill', serif !important;
+  font-weight: normal !important;
+  font-synthesis: none;
+}
+
 /* custom styles */
 .gradient-bgA {
 background: radial-gradient(circle at 5% 50%, #3B9436 5%, #378834 15.4%, #307932 23.9%, #2D6C2E 29.5%, #2A5C28 38.4%, #264B21 45.6%, #21391C 54%, #1A2818 62.5%, #121B12 71.6%, #0A0F0A 81%, #060907 90.4%, #040505 98.7%) fixed;
