@@ -497,3 +497,143 @@ background: radial-gradient(circle at 5% 50%, #3B9436 5%, #378834 15.4%, #307932
   .mwfw-ticket__stamp svg, .mwfw-live-dot::after { animation: none !important; }
   .mwfw-ticket, .dj-card, .dj-card__img { transition: none !important; }
 }
+
+/* ─────────────────────────────────────────────────────────────
+   Mobiel menu: hamburger die een kruisje wordt + menu op volledig scherm
+   ───────────────────────────────────────────────────────────── */
+/* niet scrollen achter het menu (enkel op <html>: zo blijft de sticky header staan) */
+html.menu-open { overflow: hidden; }
+
+.mwfw-burger {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--mwfw-paper);
+  color: var(--mwfw-ink);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 4px 14px -4px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s var(--mwfw-spring), background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.mwfw-burger:active { transform: scale(0.92); transition-duration: 0.12s; }
+.mwfw-burger:focus-visible { outline: 2px solid var(--mwfw-paper); outline-offset: 3px; }
+.mwfw-burger.is-open {
+  background: rgba(244, 231, 200, 0.1);
+  color: var(--mwfw-paper);
+  box-shadow: inset 0 0 0 1.5px rgba(244, 231, 200, 0.35);
+}
+.mwfw-burger__lines { position: relative; width: 22px; height: 16px; }
+.mwfw-burger__lines span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  border-radius: 2px;
+  background: currentColor;
+  /* dichtklappen: eerst terugdraaien, dan uit elkaar */
+  transition: rotate 0.3s var(--mwfw-spring), translate 0.2s ease 0.2s, opacity 0.2s ease 0.1s;
+}
+.mwfw-burger__lines span:nth-child(1) { top: 0; }
+.mwfw-burger__lines span:nth-child(2) { top: 6.75px; }
+.mwfw-burger__lines span:nth-child(3) { top: 13.5px; }
+.mwfw-burger.is-open .mwfw-burger__lines span {
+  /* openklappen: eerst naar het midden, dan draaien tot een kruisje */
+  transition: translate 0.2s ease, rotate 0.35s var(--mwfw-spring) 0.18s, opacity 0.15s ease;
+}
+.mwfw-burger.is-open .mwfw-burger__lines span:nth-child(1) { translate: 0 6.75px; rotate: 45deg; }
+.mwfw-burger.is-open .mwfw-burger__lines span:nth-child(2) { opacity: 0; }
+.mwfw-burger.is-open .mwfw-burger__lines span:nth-child(3) { translate: 0 -6.75px; rotate: -45deg; }
+
+.mwfw-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 45; /* onder de header (z-50), boven de pagina en het ticket-bolletje */
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 112px 24px calc(28px + env(safe-area-inset-bottom));
+  background:
+    radial-gradient(120% 55% at 0% 15%, rgba(59, 148, 54, 0.35), rgba(59, 148, 54, 0) 60%),
+    rgba(20, 22, 15, 0.97);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+.mwfw-menu.is-open { visibility: visible; opacity: 1; transition: opacity 0.3s ease, visibility 0s; }
+.mwfw-menu__inner { display: flex; flex-direction: column; gap: 32px; min-height: 100%; }
+.mwfw-menu__links { border-top: 1px solid rgba(244, 231, 200, 0.14); }
+.mwfw-menu__link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 2px 18px;
+  border-bottom: 1px solid rgba(244, 231, 200, 0.14);
+  color: var(--mwfw-paper);
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.mwfw-menu__link:focus-visible { outline: 2px solid var(--mwfw-paper); outline-offset: -2px; border-radius: 8px; }
+.mwfw-menu__num { flex: none; width: 24px; font-size: 13px; letter-spacing: 0.1em; color: rgba(244, 231, 200, 0.45); }
+.mwfw-menu__label { flex: 1; min-width: 0; font-size: clamp(40px, 12.5vw, 56px); line-height: 0.95; }
+.mwfw-menu__label .mwfw-highlight { box-shadow: 4px 4px 0 var(--mwfw-green); }
+.mwfw-menu__arrow {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  color: rgba(244, 231, 200, 0.55);
+  transition: transform 0.4s var(--mwfw-spring), color 0.2s ease;
+}
+.mwfw-menu__link:active .mwfw-menu__arrow,
+.mwfw-menu__link:focus-visible .mwfw-menu__arrow { transform: translateX(6px); color: var(--mwfw-paper); }
+
+/* items schuiven één voor één binnen */
+.mwfw-menu__item { opacity: 0; transform: translateY(18px); transition: opacity 0.2s ease, transform 0.3s ease; }
+.mwfw-menu.is-open .mwfw-menu__item {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.45s ease, transform 0.6s var(--mwfw-spring);
+  transition-delay: calc(var(--i) * 60ms + 60ms);
+}
+
+.mwfw-menu__bottom { display: grid; gap: 18px; margin-top: auto; }
+.mwfw-menu__tickets {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 18px 22px;
+  border-radius: 18px;
+  background: var(--mwfw-paper);
+  color: var(--mwfw-ink);
+  font-size: 22px;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 16px 32px -14px rgba(0, 0, 0, 0.8);
+  transition: transform 0.4s var(--mwfw-spring);
+  -webkit-tap-highlight-color: transparent;
+}
+.mwfw-menu__tickets svg { width: 28px; height: 28px; transform: rotate(-14deg); }
+.mwfw-menu__tickets:active { transform: scale(0.97); transition-duration: 0.12s; }
+.mwfw-menu__info { text-align: center; font-size: 13px; letter-spacing: 0.12em; color: rgba(244, 231, 200, 0.6); }
+.mwfw-menu__socials { display: flex; justify-content: center; gap: 14px; }
+.mwfw-menu__socials a {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  background: rgba(244, 231, 200, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(244, 231, 200, 0.16);
+  color: var(--mwfw-paper);
+  transition: background-color 0.2s ease, transform 0.4s var(--mwfw-spring);
+  -webkit-tap-highlight-color: transparent;
+}
+.mwfw-menu__socials a:active { transform: scale(0.92); background: rgba(244, 231, 200, 0.16); }
+.mwfw-menu__socials svg { width: 24px; height: 24px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .mwfw-menu__item { transform: none !important; transition-delay: 0s !important; }
+  .mwfw-burger__lines span { transition-duration: 0.01ms !important; transition-delay: 0s !important; }
+}
